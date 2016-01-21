@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'timeline',
+    'storages',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -121,20 +122,49 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+# BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'staticfiles')
+# STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'staticfiles')
 
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'static'),
+# )
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 # STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 # Media URL and Media Root
-MEDIA_ROOT = 'mediafiles'
-MEDIA_URL = '/media/'
+# MEDIA_ROOT = 'mediafiles'
+# MEDIA_URL = '/media/'
+
+
+AWS_ACCESS_KEY_ID = "AKIAIDMIGJZOKJPXP5IA"
+AWS_SECRET_ACCESS_KEY = "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"
+
+
+AWS_FILE_EXPIRE = 200
+AWS_PRELOAD_METADATA = True
+AWS_QUERYSTRING_AUTH = True
+
+DEFAULT_FILE_STORAGE = 'photozero.utils.MediaRootS3BotoStorage'
+STATICFILES_STORAGE = 'photozero.utils.StaticRootS3BotoStorage'
+AWS_STORAGE_BUCKET_NAME = 'dmcgphotozone'
+S3DIRECT_REGION = 'us-west-2'
+S3_URL = '//%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
+MEDIA_URL = '//%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
+MEDIA_ROOT = MEDIA_URL
+STATIC_URL = S3_URL + 'static/'
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+
+import datetime
+
+date_two_months_later = datetime.date.today() + datetime.timedelta(2 * 365 / 12) 
+expires = date_two_months_later.strftime("%A, %d %B %Y 20:00:00 GMT")
+
+AWS_HEADERS = { 
+    'Expires': expires,
+    'Cache-Control': 'max-age=86400',
+}
