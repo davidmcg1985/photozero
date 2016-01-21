@@ -23,6 +23,7 @@ import timeline.views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     # url(r'^$', timeline.views.index, name='index'),
+    url(r'^$', timeline.views.media_list, name='list'),
     url(r'^timeline/', include("timeline.urls", namespace='timeline')),
 ]
 
