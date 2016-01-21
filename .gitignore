@@ -2,6 +2,8 @@
 db.sqlite3
 photozero/settings/local.py
 photozero/old_settings.py
+photozero.sublime-project
+photozero.sublime-workspace
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
