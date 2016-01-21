@@ -1,0 +1,528 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"LOGIN",
+				"LOGIN_REDIRECT_URL"
+			],
+			[
+				"EMAIL",
+				"EMAIL_MAIN"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"conte",
+				"context"
+			],
+			[
+				"_",
+				"_blank"
+			],
+			[
+				"new",
+				"newPercent"
+			],
+			[
+				"set",
+				"setNewPercent"
+			],
+			[
+				"progress",
+				"progressBarId"
+			],
+			[
+				"pro",
+				"progressBarId"
+			],
+			[
+				"ne",
+				"newCount"
+			],
+			[
+				"NEW",
+				"newCount"
+			],
+			[
+				"si",
+				"signUpCount"
+			],
+			[
+				"nab",
+				"navbar-inverse"
+			],
+			[
+				"nav",
+				"navbar"
+			],
+			[
+				"imp",
+				"important"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"stat",
+				"static_root"
+			],
+			[
+				"STA",
+				"STATICFILES_DIRS"
+			],
+			[
+				"MEDIA",
+				"MEDIA_URL"
+			],
+			[
+				"ME",
+				"MEDIA_ROOT"
+			],
+			[
+				"join",
+				"join_obj"
+			],
+			[
+				"ref",
+				"ref_url"
+			],
+			[
+				"fr",
+				"friend	(models.py)"
+			],
+			[
+				"email",
+				"emailall"
+			],
+			[
+				"re",
+				"ref_id"
+			],
+			[
+				"o",
+				"objects"
+			],
+			[
+				"get",
+				"get_ref_id"
+			],
+			[
+				"creat",
+				"created"
+			],
+			[
+				"ip",
+				"ip_address	(models.py)"
+			],
+			[
+				"r",
+				"required	(forms.py)"
+			],
+			[
+				"max",
+				"max_length"
+			],
+			[
+				"Model",
+				"ModelForm	ModelForm"
+			],
+			[
+				"Email",
+				"EmailForm	(forms.py)"
+			],
+			[
+				"__",
+				"__unicode__	(models.py)"
+			],
+			[
+				"aut",
+				"auto_now"
+			],
+			[
+				"pa",
+				"padding-top"
+			],
+			[
+				"quer",
+				"queryset_list"
+			],
+			[
+				"is_s",
+				"is_superuser"
+			],
+			[
+				"is_",
+				"is_staff"
+			],
+			[
+				"Post",
+				"PostManager"
+			],
+			[
+				"n",
+				"now	(views.py)"
+			],
+			[
+				"publ",
+				"publish__lte	(views.py)"
+			],
+			[
+				"auto",
+				"auto_now_add"
+			],
+			[
+				"temp",
+				"template	(settings.py)"
+			],
+			[
+				"url",
+				"urllib	(views.py)"
+			],
+			[
+				"order",
+				"order_by	(views.py)"
+			],
+			[
+				"create",
+				"create_slug"
+			],
+			[
+				"slug",
+				"slug"
+			],
+			[
+				"pre_",
+				"pre_save_post_receiver"
+			],
+			[
+				"templat",
+				"template"
+			],
+			[
+				"ion-nav",
+				"ion-nav-bar	Ionic Extension"
+			],
+			[
+				"ion",
+				"ion-list	Ionic Extension"
+			],
+			[
+				"m",
+				"module	AngularJS"
+			],
+			[
+				"ion-t",
+				"ion-tabs	Ionic Extension"
+			],
+			[
+				"te",
+				"templates"
+			],
+			[
+				"on",
+				"onReady"
+			],
+			[
+				"ion-n",
+				"ion-nav-bar	Ionic Extension"
+			],
+			[
+				"firebase",
+				"firebaseArray"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"background-",
+				"background-color"
+			],
+			[
+				"items",
+				"itemsRef"
+			],
+			[
+				"fi",
+				"firebaseArray"
+			],
+			[
+				"cord",
+				"cordovaSQLite"
+			],
+			[
+				"watch",
+				"watchOptions"
+			],
+			[
+				"err",
+				"errStr"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "Packages/Python/Python.sublime-build",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"",
+				"Package Control: Install Package"
+			],
+			[
+				"python",
+				"Set Syntax: Python"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"rep",
+				"Package Control: Add Repository"
+			],
+			[
+				"scss",
+				"Set Syntax: CSS"
+			],
+			[
+				"pa",
+				"Package Control: Enable Package"
+			]
+		],
+		"width": 575.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/davidmcg/development/django/projects/dallauth-project/ds/db.sqlite3",
+		"/Users/davidmcg/development/django/projects/dallauth-project/.gitignore",
+		"/Users/davidmcg/development/django/projects/dallauth-project/Procfile",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/templates/account/signup.html",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/templates/account/login.html",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/djangoall/urls.py",
+		"/Users/davidmcg/development/django/projects/dallauth-project/requirements.txt",
+		"/Users/davidmcg/development/django/projects/dallauth-project/ds/ds/urls.py",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/static/css/style.css",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/templates/base.html",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/templates/post_detail.html",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/templates/post_list.html",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/templates/account/verified_email_required.html",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/templates/account/verification_sent.html",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/templates/account/signup_closed.html",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/templates/account/password_set.html",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/templates/account/password_reset_from_key_done.html",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/templates/account/password_reset_from_key.html",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/templates/account/password_reset_done.html",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/templates/account/password_change.html",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/templates/account/logout.html",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/templates/account/email_confirmed.html",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/templates/account/email_confirm.html",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/templates/account/email.html",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/templates/account/account_inactive.html",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/templates/account/password_reset.html",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/templates/button-styles.html",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/djangoall/settings.py",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/posts/urls.py",
+		"/Users/davidmcg/development/django/projects/dallauth-project/ds/ds/settings.py",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/templates/account/base.html",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/templates/post_form.html",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/templates/messages_display.html",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/templates/500.html",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/templates/404.html",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/templates/400.html",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/posts/views.py",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/posts/models.py",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/posts/forms.py",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/manage.py",
+		"/Users/davidmcg/development/django/projects/dallauth-project/src/djangoall/wsgi.py",
+		"/Users/davidmcg/development/django/projects/dallauth-project/README.md",
+		"/Users/davidmcg/development/django/projects/ds/ds/settings.py",
+		"/Users/davidmcg/development/django/projects/django_allauth/src/settings.py",
+		"/Users/davidmcg/development/django/projects/django_allauth/src/django_allauth/settings.py",
+		"/Users/davidmcg/development/django/projects/django_allauth/src/django_allauth/urls.py",
+		"/Users/davidmcg/development/django/projects/django_allauth/src/urls.py",
+		"/Users/davidmcg/development/django/projects/lwc/src/lwc/settings/base.py",
+		"/Users/davidmcg/development/django/projects/lwc/src/lwc/settings_old.py",
+		"/Users/davidmcg/development/django/projects/lwc/src/templates/share.html",
+		"/Users/davidmcg/development/django/projects/lwc/src/templates/home.html",
+		"/Users/davidmcg/development/django/projects/lwc/src/lwc/urls.py",
+		"/Users/davidmcg/development/django/projects/lwc/src/lwc/views.py",
+		"/Users/davidmcg/development/django/projects/lwc/src/templates/base.html",
+		"/Users/davidmcg/development/django/projects/lwc/src/templates/404.html",
+		"/Users/davidmcg/development/django/projects/lwc/src/templates/400.html",
+		"/Users/davidmcg/development/django/projects/lwc/src/templates/500.html",
+		"/Users/davidmcg/development/django/projects/lwc/src/templates/donotuse.html",
+		"/Users/davidmcg/development/django/projects/lwc/src/joins/views.py",
+		"/Users/davidmcg/development/django/projects/lwc/src/joins/admin.py",
+		"/Users/davidmcg/development/django/projects/lwc/src/joins/models.py",
+		"/Users/davidmcg/development/django/projects/lwc/src/lwc/middleware.py",
+		"/Users/davidmcg/development/django/projects/lwc/src/lwc/settings.py",
+		"/Users/davidmcg/development/django/projects/lwc/src/static/static_dirs/js/script.js",
+		"/Users/davidmcg/development/django/projects/lwc/src/templates/navbar.html",
+		"/Users/davidmcg/development/django/projects/lwc/src/joins/forms.py",
+		"/Users/davidmcg/development/django/projects/trydjango19/src/templates/base.html",
+		"/Users/davidmcg/development/django/projects/lwc/lwc/settings.py",
+		"/Users/davidmcg/development/django/projects/trydjango19/src/trydjango19/settings.py",
+		"/Users/davidmcg/development/django/projects/trydjango19/src/trydjango19/urls.py",
+		"/Users/davidmcg/development/django/projects/trydjango19/src/posts/urls.py",
+		"/Users/davidmcg/development/django/projects/trydjango19/src/templates/post_list.html",
+		"/Users/davidmcg/development/django/projects/trydjango19/src/templates/post_detail.html",
+		"/Users/davidmcg/development/django/projects/trydjango19/src/posts/templatetags/urlify.py",
+		"/Users/davidmcg/development/django/projects/trydjango19/src/posts/forms.py",
+		"/Users/davidmcg/development/django/projects/trydjango19/src/posts/models.py",
+		"/Users/davidmcg/development/django/projects/trydjango19/src/posts/templatetags/__init__.py",
+		"/Users/davidmcg/development/django/projects/trydjango19/src/templates/post_list_page.html",
+		"/Users/davidmcg/development/django/projects/trydjango19/src/crud.md",
+		"/Users/davidmcg/development/django/projects/trydjango19/src/posts/admin.py",
+		"/Users/davidmcg/development/mobile-apps/meteor/goosechat/client/index.html",
+		"/Users/davidmcg/development/mobile-apps/meteor/goosechat/lib/collections.js",
+		"/Users/davidmcg/development/mobile-apps/meteor/goosechat/server/bootstrap.js",
+		"/Users/davidmcg/development/mobile-apps/meteor/goosechat/client/scripts/routes.js",
+		"/Users/davidmcg/development/mobile-apps/meteor/goosechat/client/scripts/directives/input.directive.js",
+		"/Users/davidmcg/development/mobile-apps/meteor/goosechat/client/scripts/controllers/chat.controller.js",
+		"/Users/davidmcg/development/mobile-apps/meteor/goosechat/lib/methods.js",
+		"/Users/davidmcg/development/mobile-apps/meteor/goosechat/client/scripts/controllers/chats.controller.js",
+		"/Users/davidmcg/development/mobile-apps/meteor/goosechat/client/styles/chats.scss",
+		"/Users/davidmcg/development/mobile-apps/meteor/goosechat/client/styles/chat.scss",
+		"/Users/davidmcg/development/mobile-apps/meteor/goosechat/client/templates/tabs.html",
+		"/Users/davidmcg/development/mobile-apps/meteor/goosechat/client/templates/chats.html",
+		"/Users/davidmcg/development/mobile-apps/meteor/goosechat/client/templates/chat.html",
+		"/Users/davidmcg/development/mobile-apps/meteor/goosechat/client/scripts/lib/app.js",
+		"/Users/davidmcg/development/mobile-apps/meteor/goosechat/client/templates/chat-detail.html",
+		"/Users/davidmcg/development/mobile-apps/meteor/goosechat/client/scripts/filters/calender.filter.js",
+		"/Users/davidmcg/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/davidmcg/development/mobile-apps/ionic/IonicProject/www/js/services.js",
+		"/Users/davidmcg/development/mobile-apps/ionic/IonicProject/www/js/controller.js",
+		"/Users/davidmcg/development/mobile-apps/cameraApp/config.xml",
+		"/Users/davidmcg/development/mobile-apps/localstorageApp/www/js/index.js",
+		"/Users/davidmcg/development/mobile-apps/localstorageApp/config.xml",
+		"/Users/davidmcg/development/mobile-apps/compass/config.xml"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"Twitter",
+			"><",
+			"darka",
+			"{{ form.as_p }}",
+			"form.as_p",
+			"trydjango19",
+			"sqliteseq",
+			"section",
+			"blogapp"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 223.0,
+	"status_bar_visible": true
+}
