@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
-import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -139,7 +138,7 @@ ALLOWED_HOSTS = ['*']
 
 # STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'staticfiles')
 
-# STATIC_URL = '/static/'
+STATIC_URL = '/static/'
 
 # STATICFILES_DIRS = (
 #     os.path.join(BASE_DIR, 'static'),
@@ -150,8 +149,8 @@ ALLOWED_HOSTS = ['*']
 # STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 # Media URL and Media Root
-# MEDIA_ROOT = 'mediafiles'
-# MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'mediafiles')
+MEDIA_URL = '/media/'
 
 
 AWS_ACCESS_KEY_ID = "AKIAIDMIGJZOKJPXP5IA"
@@ -167,8 +166,8 @@ STATICFILES_STORAGE = 'photozero.utils.StaticRootS3BotoStorage'
 AWS_STORAGE_BUCKET_NAME = 'dmcgphotozone'
 S3DIRECT_REGION = 'us-west-2'
 S3_URL = '//%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
-MEDIA_URL = '//%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
-MEDIA_ROOT = MEDIA_URL
+# MEDIA_URL = '//%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
+# MEDIA_ROOT = MEDIA_URL
 STATIC_URL = S3_URL + 'static/'
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
