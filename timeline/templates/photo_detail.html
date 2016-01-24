@@ -11,7 +11,7 @@
 {% block content %}
 
   <div id="header" class="text-center">
-      <img src="{% static 'img/logo500x345.png' %}" class="img-responsive logo"/>
+      <a href="{% url 'timeline:list' %}"><img src="{% static 'img/logo500x345.png' %}" class="img-responsive logo"/></a>
       <h3>PhotoZero</h3>
 
       <div class="space"></div> <!-- 40px Vertical Spacing -->
