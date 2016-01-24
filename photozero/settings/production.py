@@ -6,6 +6,8 @@ import dj_database_url
 DEBUG = False
 TEMPLATE_DEBUG = False
 
+ADMINS = (('Webmaster','dmcgweb101@gmail.com'),('Administrator','davidmcg1985@gmail.com'))
+
 DATABASES = settings.DATABASES
 
 # Parse database configuration from $DATABASE_URL

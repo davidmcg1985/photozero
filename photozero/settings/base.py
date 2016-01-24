@@ -24,7 +24,7 @@ SECRET_KEY = 'tt7k7p(o(di&@0szb2y7o7vbp@j^enr9uxiy@#6r^c0fyg$1gr'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-
+ADMINS = (('Webmaster','dmcgweb101@gmail.com'),('Administrator','davidmcg1985@gmail.com'))
 # Application definition
 
 INSTALLED_APPS = [
