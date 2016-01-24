@@ -35,14 +35,12 @@ class Photo(models.Model):
 	# 	width_field="width_field",
 	# 	height_field="height_field")
 	image_rotated = ProcessedImageField(upload_to=upload_location,
-		null=False, 
-		blank=False,
 		default=None,
 		width_field='width_field',
 		height_field='height_field',
 		processors=[Transpose()],
-       	format='JPEG',
-       	options={'quality': 100})
+       	format='JPEG')
+       	# options={'quality': 100})
 	height_field = models.IntegerField(default=0)
 	width_field = models.IntegerField(default=0)
 	content = models.TextField()
