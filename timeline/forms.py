@@ -10,7 +10,7 @@ class PhotoForm(forms.ModelForm):
         fields = [
             "title",
             "content",
-            "image",
+            "image_rotated",
             # "draft",
             # "publish",
         ]

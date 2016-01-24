@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'timeline',
     'storages',
     'crispy_forms',
+    'imagekit',
 ]
 
 MIDDLEWARE_CLASSES = [

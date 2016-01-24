@@ -6,6 +6,9 @@ from django.db import models
 from django.db.models.signals import pre_save
 from django.utils import timezone
 
+from imagekit.models import ProcessedImageField
+from imagekit.processors import Transpose
+
 from django.utils.text import slugify
 # Create your models here.
 
@@ -26,11 +29,20 @@ class Photo(models.Model):
 	title = models.CharField(max_length=120)
 	# image = models.FileField(null=True, blank=True)
 	slug = models.SlugField(unique=True)
-	image = models.ImageField(upload_to=upload_location, 
-		null=True, 
-		blank=True,
-		width_field="width_field",
-		height_field="height_field")
+	# image = models.ImageField(upload_to=upload_location, 
+	# 	null=True, 
+	# 	blank=True,
+	# 	width_field="width_field",
+	# 	height_field="height_field")
+	image_rotated = ProcessedImageField(upload_to=upload_location,
+		null=False, 
+		blank=False,
+		default=None,
+		width_field='width_field',
+		height_field='height_field',
+		processors=[Transpose()],
+       	format='JPEG',
+       	options={'quality': 100})
 	height_field = models.IntegerField(default=0)
 	width_field = models.IntegerField(default=0)
 	content = models.TextField()

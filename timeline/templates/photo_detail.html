@@ -28,9 +28,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="photoDetail">
-			{% if instance.image %}
-	    		<img src='{{ instance.image.url }}' class='img-responsive' />
-	    	{% endif %}
+	    		<img src='{{ instance.image_rotated.url }}' class='img-responsive' />
     		</div>
     	</div>
 	</div>
