@@ -35,7 +35,6 @@ class Photo(models.Model):
 	# 	width_field="width_field",
 	# 	height_field="height_field")
 	image_rotated = ProcessedImageField(upload_to=upload_location,
-		default=None,
 		width_field='width_field',
 		height_field='height_field',
 		processors=[Transpose()],
