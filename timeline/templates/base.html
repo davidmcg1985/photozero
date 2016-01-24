@@ -64,18 +64,6 @@
 		fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
 
-	<script>
-	document.getElementById('file-input').onchange = function (e) {
-    loadImage(
-        e.target.files[0],
-        function (img) {
-            document.body.appendChild(img);
-        },
-        //{maxWidth: 600} // Options
-    	);
-	};
-	</script>
-
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="navbar-header">
 		<!-- <a class="navbar-brand" href="#">Brand</a> -->
@@ -92,8 +80,6 @@
 			</ul>
 		</div>
 	</nav>
-
-	<div class="space"></div> <!-- 40px Vertical Spacing -->
 
 	{% include "messages_display.html" %}
 
