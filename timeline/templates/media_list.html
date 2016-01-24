@@ -1,70 +1,100 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% block content %}
 
+  <div id="header" class="text-center">
+      <img src="{% static 'img/logo.png' %}" />
+      <h3>PhotoZero</h3>
 
-<div class='col-sm-6 col-sm-offset-3'>
+      <div class="space"></div> <!-- 40px Vertical Spacing -->
+
+      <p>Share your photographs.</p>
+      <a href="{% url 'timeline:create' %}" class="btn btn-purple"><i class="fa fa-upload"></i>
+ Upload</a>
+
+      <div class="space"></div> <!-- 40px Vertical Spacing -->
+      
+      <form method="GET" action="" class="form-inline">
+        <div class="form-group">
+          <input type="text" placeholder="&#xF002;" style="font-family:Arial, FontAwesome" name="q" class="form-control input-lg" value="{{ request.GET.q }}">
+          <!-- <button type="submit" class="btn btn-purple searchBtn"><i class="fa fa-search"></i></button> -->
+        </div>      
+      </form>
+  </div>
+
+  <div class="space"></div> <!-- 40px Vertical Spacing -->
+
+  <!-- Timeline -->
+  <section id="timeline">
+
+  <div class="container-fluid"> <!-- Container Fluid-->
+  {% for obj in object_list %}
     <div class="row">
-      <div class="col-sm-12 text-center">
-        <h1>{{ title }}</h1>
+        <div class="timeline">
+            {% if obj.image %}
+             <img src='{{ obj.image.url }}' class='img-responsive' />
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-left">
+                    <div class="fb-like pull-left" data-href="{{ request.build_absolute_uri }}" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+          <p class="pull-right"><small>Posted {{ obj.timestamp | timesince }} ago</small></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <a class="btn btn-block btn-lg btn-purplea" style="cursor: default; text-transform: none;">{{ obj.title }}</a>
+        </div>
+        <div class="col-md-7">
+          {% if obj.user.get_full_name %}
+          <a class="btn btn-block btn-lg btn-purplea" style="cursor: default; text-transform: none;">Photographer: {{ obj.user.get_full_name }}</a>
+          {% else %}
+          <a class="btn btn-block btn-lg btn-purplea" style="cursor: default; text-transform: none;">Photographer: {{ obj.user }}</a>
+          {% endif %}
+        </div>
+        <div class="col-md-2">
+          <a href="{{ obj.get_absolute_url }}" class="btn btn-block btn-lg btn-dark" role="button">View <i class="fa fa-angle-double-right"></i>
+</a>
+        </div>
       </div>
     </div>
+          <!-- <a class="btn btn-block btn-lg btn-purplea" style="cursor: default; text-transform: none;">
+            {{ obj.content|truncatechars:50 }}
+          </a> -->
     <hr/>
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="input-group input-group-lg">
-                <a href="{% url 'timeline:create' %}" class="btn btn-lg btn-dark" role="button">New</a>
-            </div>
-        </div>
-        <div class="col-sm-8">
-            <div class="form-group pull-right text-right">
-                <form method='GET' action='' class="form-inline">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
-                        <input type='text' class="form-control" name='q' placeholder='Search Timeline' value='{{ request.GET.q }}'/>
-  
-<!--                             <button class="btn btn-lg btn-gray" type="submit"><i class="fa fa-search"></i></button>
- -->                            
+    <div class="space"></div> <!-- 40px Vertical Spacing -->
+  {% endfor %}
+  </div>
 
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+  </section>
 
+  <div class="space"></div> <!-- 40px Vertical Spacing -->
 
-
-{% for obj in object_list %}
-<div class="row">
-  <div class="col-sm-12">
-    <div class="thumbnail">
-        {% if obj.image %}
-         <img src='{{ obj.image.url }}' class='img-responsive' />
-        {% endif %}
-      <div class="caption">
-        {% if obj.draft %}<h3>Staff only: Draft</h3>{% endif %} {% if obj.publish > today %}<h3>Staff Only: Future Post</h3>{% endif %}
-        <h3><a href='{{ obj.get_absolute_url }}'>{{ obj.title }}</a> <small>{{ obj.publish }}</small></h3>
-        {% if obj.user.get_full_name %}<p>Author: {{ obj.user.get_full_name }}</p>{% endif %}
-        <p>{{ obj.content|linebreaks|truncatechars:120 }}</p>
-        <p><a href="{{ obj.get_absolute_url }}" class="btn btn-lg btn-gray" role="button">View</a></p>
-      </div>
+  <div class="container">
+    <div class="col-md-12 text-center">
+      <ul class="pagination pagination-lg">
+        <li>{% if object_list.has_previous %}
+          <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">&laquo;</a>
+          {% endif %}
+        </li>
+        <li>
+          <span class="current">
+            Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
+          </span>
+        </li>
+        <li>
+          <a href="#">2</a>
+        </li>
+        <li>{% if object_list.has_next %}
+          <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">&raquo;</a>
+            {% endif %}
+        </li>
+      </ul>
     </div>
   </div>
-<hr/>
-</div>
-{% endfor %}
-
-
-<ul class="pagination pagination-lg">
-  <li>{% if object_list.has_previous %}
-            <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">&laquo;</a>
-        {% endif %}</li>
-  <li><span class="current">
-            Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
-        </span></li>
-  <li><a href="#">2</a></li>
-  <li>        {% if object_list.has_next %}
-            <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">&raquo;</a>
-        {% endif %}</li>
-</ul>
 
 {% endblock content %}
