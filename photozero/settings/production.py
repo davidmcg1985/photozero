@@ -3,8 +3,8 @@ from django.conf import settings
 import dj_database_url
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-TEMPLATE_DEBUG = False
+DEBUG = True
+TEMPLATE_DEBUG = True
 
 ADMINS = (('Webmaster','dmcgweb101@gmail.com'),('Administrator','davidmcg1985@gmail.com'))
 

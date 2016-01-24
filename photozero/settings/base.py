@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 SECRET_KEY = 'tt7k7p(o(di&@0szb2y7o7vbp@j^enr9uxiy@#6r^c0fyg$1gr'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ADMINS = (('Webmaster','dmcgweb101@gmail.com'),('Administrator','davidmcg1985@gmail.com'))
 # Application definition
