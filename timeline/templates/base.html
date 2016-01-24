@@ -64,6 +64,18 @@
 		fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
 
+	<script>
+	document.getElementById('file-input').onchange = function (e) {
+    loadImage(
+        e.target.files[0],
+        function (img) {
+            document.body.appendChild(img);
+        },
+        //{maxWidth: 600} // Options
+    	);
+	};
+	</script>
+
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="navbar-header">
 		<!-- <a class="navbar-brand" href="#">Brand</a> -->
@@ -105,7 +117,7 @@
 	<script type="text/javascript" src="{% static 'js/jquery.1.11.1.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/SmoothScroll.js' %}"></script>  
-
+	<script type="text/javascript" src="{% static 'js/load-image.all.min.js' %}"></script>  
 </body>
 </html>
 
