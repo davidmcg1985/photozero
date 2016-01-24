@@ -11,13 +11,13 @@
 {% block content %}
 
   <div id="header" class="text-center">
-      <img src="{% static 'img/logo.png' %}" />
+      <img src="{% static 'img/logo500x345.png' %}" class="img-responsive logo"/>
       <h3>PhotoZero</h3>
 
       <div class="space"></div> <!-- 40px Vertical Spacing -->
 
       <p>Share your photographs.</p>
-      <button href="{% url 'timeline:create' %}" class="btn btn-purple">Upload</button>      
+      <a href="{% url 'timeline:create' %}" class="btn btn-purple"><i class="fa fa-upload"></i> Upload</a>      
   </div>
 
   <div class="space"></div> <!-- 40px Vertical Spacing -->
@@ -38,7 +38,7 @@
 	<div class="container"> <!-- Container -->
 	 	<div class="row">
 			<div class="col-md-8">
-				<h1>{{ title }} <small>{% if instance.draft %}<span style='color:red;'>Draft</span> {% endif %}{{ instance.publish }}</small></h1>
+				<h1>{{ title }} <small>{{ instance.timestamp | timesince }} Ago<br/><h5>{{ instance.timestamp }}</h5></small></h1>
 			</div>
 			<div class="col-md-4" style="padding: 20px 15px 0 15px !important;">
 						
@@ -64,7 +64,9 @@
 		
 		<div class='row'>
 			<div class='col-sm-12'>
+
 				<div class="description">
+					<h4>Description</h4>
 					{{ instance.content|linebreaks }}
 				</div>
 			</div>

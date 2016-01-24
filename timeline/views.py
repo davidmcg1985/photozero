@@ -6,17 +6,17 @@ from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 
-from .forms import MediaForm
-from .models import Media
+from .forms import PhotoForm
+from .models import Photo
 
 # def index(request):
 # 	return HttpResponse('Hello David!')
 
-def media_create(request):
+def photo_create(request):
 	if not request.user.is_staff or not request.user.is_superuser:
 	 	raise Http404
 
-	form = MediaForm(request.POST or None, request.FILES or None)
+	form = PhotoForm(request.POST or None, request.FILES or None)
 	if form.is_valid():
 		instance = form.save(commit=False)
 		instance.user = request.user
@@ -28,14 +28,14 @@ def media_create(request):
 		"form": form,
 	}
 
-	return render(request, "media_form.html", context)
+	return render(request, "photo_form.html", context)
 
 
-def media_detail(request, slug=None): # retrieve
-	instance = get_object_or_404(Media, slug=slug)
-	if instance.draft or instance.publish > timezone.now().date():
-		if not request.user.is_staff or not request.user.is_superuser:
-			raise Http404
+def photo_detail(request, slug=None): # retrieve
+	instance = get_object_or_404(Photo, slug=slug)
+	# if instance.draft or instance.timestamp > timezone.now().date():
+	# 	if not request.user.is_staff or not request.user.is_superuser:
+	# 		raise Http404
 	share_string = quote_plus(instance.content)
 	context = {
 		"title": instance.title,
@@ -44,14 +44,14 @@ def media_detail(request, slug=None): # retrieve
 		# "slug": instance.slug,
 	}
 
-	return render(request, "media_detail.html", context)
+	return render(request, "photo_detail.html", context)
 	# return HttpResponse("<h1>Detail</h1>")
 
 
-def media_list(request): # list items
-	queryset_list = Media.objects.active()
+def photo_list(request): # list items
+	queryset_list = Photo.objects.all()
 	if request.user.is_staff or request.user.is_superuser:
-		queryset_list = Media.objects.all()
+		queryset_list = Photo.objects.all()
 
 	query = request.GET.get("q")
 	if query:
@@ -80,14 +80,14 @@ def media_list(request): # list items
 		"page_request_var": page_request_var,
 	}
 
-	return render(request, "media_list.html", context)
+	return render(request, "photo_list.html", context)
 
 
-def media_update(request, slug=None):
+def photo_update(request, slug=None):
 	if not request.user.is_staff or not request.user.is_superuser:
 		raise Http404
-	instance = get_object_or_404(Media, slug=slug)
-	form = MediaForm(request.POST or None, request.FILES or None, instance=instance)
+	instance = get_object_or_404(Photo, slug=slug)
+	form = PhotoForm(request.POST or None, request.FILES or None, instance=instance)
 	if form.is_valid():
 		instance = form.save(commit=False)
 		instance.save()
@@ -101,13 +101,13 @@ def media_update(request, slug=None):
 		"form":form,
 	}
 
-	return render(request, "media_form.html", context)
+	return render(request, "photo_form.html", context)
 
 
-def media_delete(request, slug=None):
+def photo_delete(request, slug=None):
 	if not request.user.is_staff or not request.user.is_superuser:
 		raise Http404
-	instance = get_object_or_404(Media, slug=slug)
+	instance = get_object_or_404(Photo, slug=slug)
 	instance.delete()
 	messages.success(request, "Succesfully Deleted")
 	return redirect("timeline:list")

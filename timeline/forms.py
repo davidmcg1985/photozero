@@ -1,16 +1,16 @@
 from django import forms
 
 
-from .models import Media
+from .models import Photo
 
 
-class MediaForm(forms.ModelForm):
+class PhotoForm(forms.ModelForm):
     class Meta:
-        model = Media
+        model = Photo
         fields = [
             "title",
             "content",
             "image",
-            "draft",
-            "publish",
+            # "draft",
+            # "publish",
         ]

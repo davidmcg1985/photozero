@@ -10,9 +10,9 @@ from django.utils.text import slugify
 # Create your models here.
 
 
-class PhotoManager(models.Manager):
-	def active(self, *args, **kwargs):
-		return super(PhotoManager, self).filter(draft=False).filter(publish__lte=timezone.now())
+# class PhotoManager(models.Manager):
+# 	def active(self, *args, **kwargs):
+# 		return super(PhotoManager, self).filter(draft=False).filter(publish__lte=timezone.now())
 
 
 def upload_location(instance, filename):
@@ -21,7 +21,7 @@ def upload_location(instance, filename):
 	return "%s/%s" %(instance.slug, filename)
 
 
-class Media(models.Model):
+class Photo(models.Model):
 	user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1)
 	title = models.CharField(max_length=120)
 	# image = models.FileField(null=True, blank=True)
@@ -34,12 +34,12 @@ class Media(models.Model):
 	height_field = models.IntegerField(default=0)
 	width_field = models.IntegerField(default=0)
 	content = models.TextField()
-	draft = models.BooleanField(default=False)
-	publish = models.DateField(auto_now=False, auto_now_add=False, null=True, blank=True)
+	# draft = models.BooleanField(default=False)
+	# publish = models.DateField(auto_now=False, auto_now_add=False, null=True, blank=True)
 	updated = models.DateTimeField(auto_now=True, auto_now_add=False)
 	timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
 
-	objects = PhotoManager()
+	# objects = PhotoManager()
 
 	def __unicode__(self):
 		return self.title
@@ -58,7 +58,7 @@ def create_slug(instance, new_slug=None):
 	slug = slugify(instance.title)
 	if new_slug is not None:
 		slug = new_slug
-	qs = Media.objects.filter(slug=slug).order_by("-id")
+	qs = Photo.objects.filter(slug=slug).order_by("-id")
 	exists = qs.exists()
 	if exists:
 		new_slug = "%s-%s" %(slug, qs.first().id)
@@ -71,4 +71,4 @@ def pre_save_post_receiver(sender, instance, *args, **kwargs):
 		instance.slug = create_slug(instance)
 
 
-pre_save.connect(pre_save_post_receiver, sender=Media)
+pre_save.connect(pre_save_post_receiver, sender=Photo)

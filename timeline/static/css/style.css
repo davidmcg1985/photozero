@@ -63,7 +63,6 @@ a:focus {
 .padding-right { padding-left: 10px }
 .bold { font-weight: 700 }
 .light { font-weight: lighter }
-.logo { height: 60px }
 #header {
     background-color: #ffffff;
     color: #82368C;
@@ -143,6 +142,13 @@ a:focus {
     border-color: #E7E7E7;
 }
 
+.logo {
+    display: inline !important;
+    width: 10%;
+    height: 10%;
+    max-width: 10%;
+    min-width: 100px;
+}
 
 /***************************
 ******** Timeline ********
@@ -204,7 +210,7 @@ a:focus {
 
 .description {
     border: 1px solid #82368C;
-    padding: 30px;
+    padding: 20px;
     margin: 40px 0;
 }
 

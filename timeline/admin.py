@@ -1,16 +1,16 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Media
+from .models import Photo
 
-class MediaModelAdmin(admin.ModelAdmin):
-	list_display = ["title", "updated", "timestamp", "draft", "publish", "user"]
-	list_display_links = ["title"]
-	list_filter = ["updated", "timestamp", "publish"]
-	list_editable = ["draft"]
+class PhotoModelAdmin(admin.ModelAdmin):
+	list_display = ["title", "updated", "timestamp", "user"]
+	#list_display_links = ["title"]
+	list_filter = ["updated", "timestamp"]
+	#list_editable = ["draft"]
 	search_fields = ["title", "content"]
 
 	class Meta:
-		model = Media
+		model = Photo
 
-admin.site.register(Media, MediaModelAdmin)
+admin.site.register(Photo, PhotoModelAdmin)

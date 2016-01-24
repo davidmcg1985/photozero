@@ -3,20 +3,20 @@
 {% block content %}
 
   <div id="header" class="text-center">
-      <img src="{% static 'img/logo.png' %}" />
+      <img src="{% static 'img/logo500x345.png' %}" class="img-responsive logo"/>
       <h3>PhotoZero</h3>
 
       <div class="space"></div> <!-- 40px Vertical Spacing -->
 
       <p>Share your photographs.</p>
-      <a href="{% url 'timeline:create' %}" class="btn btn-purple"><i class="fa fa-upload"></i>
- Upload</a>
+      <a href="{% url 'timeline:create' %}" class="btn btn-purple"><i class="fa fa-upload"></i> Upload</a>
 
       <div class="space"></div> <!-- 40px Vertical Spacing -->
       
       <form method="GET" action="" class="form-inline">
         <div class="form-group">
-          <input type="text" placeholder="&#xF002;" style="font-family:Arial, FontAwesome" name="q" class="form-control input-lg" value="{{ request.GET.q }}">
+          <input type="text" placeholder="&#xF002;" style="font-family:Arial, FontAwesome" name="q" class="form-control input-lg" value="{{ request.GET.q }}"><br/>
+          <a href="{% url 'timeline:list' %}">Clear search results</a>
           <!-- <button type="submit" class="btn btn-purple searchBtn"><i class="fa fa-search"></i></button> -->
         </div>      
       </form>
