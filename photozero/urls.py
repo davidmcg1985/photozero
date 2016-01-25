@@ -22,9 +22,9 @@ import timeline.views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    # url(r'^$', timeline.views.index, name='index'),
     url(r'^$', timeline.views.photo_list, name='list'),
     url(r'^timeline/', include("timeline.urls", namespace='timeline')),
+    url(r'^accounts/', include('allauth.urls')),
 ]
 
 if settings.DEBUG:
