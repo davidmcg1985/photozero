@@ -359,6 +359,34 @@ a:focus {
     -webkit-font-smoothing: antialiased;
 }
 
+/***************************
+******** Form fields ********
+***************************/
+
+input[type="file"] {
+    width: 100%;
+    display: block;
+    color: #494949 !important;
+    border: 1px solid #82368C;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 2px;
+    padding: 10px 16px;
+    line-height: 1.33;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -moz-user-select: none;
+    background-image: none;
+    margin-top: 10px;
+}
+
+#div_id_image > .controls {
+    margin-top: 10px;
+}
+
 
 /***************************
 ******** Footer ********

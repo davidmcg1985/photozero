@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block content %}
+
+  <div id="header" class="text-center">
+      <a href="{% url 'timeline:list' %}"><img src="{% static 'img/logo500x345.png' %}" class="img-responsive logo"/></a>
+      <h3>PhotoZero</h3>
+
+      <div class="space"></div> <!-- 40px Vertical Spacing -->
+
+      <p>Share your photographs.</p>   
+  </div>
+
+	 <div class="space"></div> <!-- 40px Vertical Spacing -->
+
+<section id="uploadForm">
+	<div class='container'>
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Upload New Photo</h1>
+				<form method='POST' action='' enctype='multipart/form-data'>{% csrf_token %}
+					{{ form | crispy }}
+					<br/>
+					<input type='submit' class='btn btn-block btn-lg btn-dark' value='Create' />
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock content %}

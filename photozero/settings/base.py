@@ -22,9 +22,10 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 SECRET_KEY = 'tt7k7p(o(di&@0szb2y7o7vbp@j^enr9uxiy@#6r^c0fyg$1gr'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ADMINS = (('Webmaster','dmcgweb101@gmail.com'),('Administrator','davidmcg1985@gmail.com'))
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,8 +38,10 @@ INSTALLED_APPS = [
     'timeline',
     'storages',
     'crispy_forms',
-    'imagekit',
+    #'imagekit',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -75,17 +78,16 @@ WSGI_APPLICATION = 'photozero.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'photozero',
-        'USER': 'photozeroadminuser',
-        'PASSWORD': 'adminpassword',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
-
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'photozero2',
+#         'USER': 'photozerouser',
+#         'PASSWORD': 'photozeropass',
+#         'HOST': 'localhost',
+#         'PORT': '',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators

@@ -31,7 +31,9 @@
   {% for obj in object_list %}
     <div class="row">
         <div class="timeline">
-             <img src='{{ obj.image_rotated.url }}' class='img-responsive' />
+            {% if obj.image %}
+             <img src='{{ obj.image.url }}' class='img-responsive' />
+            {% endif %}
         </div>
     </div>
 

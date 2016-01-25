@@ -1,12 +1,15 @@
 {% extends "base.html" %}
 {% load i18n %}
  
-{% block title %}Page not found{% endblock %}
+{% block title %}Internal Server Error{% endblock %}
  
 {% block content %}
-<div class='col-sm-6 col-sm-offset-3'>
-<h1>Internal Server Error. 500 Error</h1>
- 
-<p>Sorry, Internal Server Error.</p>
-</div>
+
+  <div id="header" class="text-center">
+  	<div class="container">
+		<h1>Internal Server Error. 500 Error</h1>
+		<p>Sorry, Internal Server Error.</p>
+	</div>
+  </div>
+
 {% endblock %}

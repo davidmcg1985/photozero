@@ -28,7 +28,7 @@ def photo_create(request):
 		"form": form,
 	}
 
-	return render(request, "photo_form.html", context)
+	return render(request, "photo_upload.html", context)
 
 
 def photo_detail(request, slug=None): # retrieve
@@ -101,7 +101,7 @@ def photo_update(request, slug=None):
 		"form":form,
 	}
 
-	return render(request, "photo_form.html", context)
+	return render(request, "photo_update.html", context)
 
 
 def photo_delete(request, slug=None):
