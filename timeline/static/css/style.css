@@ -406,7 +406,7 @@ input[type="file"] {
         height: auto !important;
         height: 100%;
         /* Negative indent footer by it's height */
-        margin: 0 auto -200px;
+        margin: 0 auto 0px;
       }
 
       /* Set the fixed height of the footer here */

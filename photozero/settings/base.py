@@ -26,7 +26,7 @@ DEBUG = False
 
 ADMINS = (('Webmaster','dmcgweb101@gmail.com'),('Administrator','davidmcg1985@gmail.com'))
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['www.photozero.co.uk']
 
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = 'davidmcg1985'
@@ -45,18 +45,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-
+    'timeline',
+    'storages',
+    'imagekit',
+    'crispy_forms',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     # 'allauth.socialaccount.providers.facebook',
     # 'allauth.socialaccount.providers.twitter',
     # 'allauth.socialaccount.providers.instagram',
-    'crispy_forms',
-
-    'timeline',
-    'storages',
-    'imagekit',
 ]
 
 SITE_ID = 1

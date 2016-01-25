@@ -78,17 +78,22 @@
  Back</a>
 			</div>
 			<div class="col-sm-4">
-				<a href="{% url 'timeline:update' slug=instance.slug %}" class="btn btn-block btn-lg btn-purple" role="button"><i class="fa fa-pencil-square-o"></i>
- Edit</a>
+				<a href="{{ instance.image.url }}" class="btn btn-block btn-lg btn-purple" role="button"><i class="fa fa-download"></i> Download</a>
 			</div>
+			{% if user.is_superuser or request.user == instance.user %}  
 			<div class="col-sm-4">
-				<a href="{{ instance.image.url }}" class="btn btn-block btn-lg btn-purple" role="button"><i class="fa fa-download"></i>
- Download</a>
+				<a href="{% url 'timeline:update' slug=instance.slug %}" class="btn btn-block btn-lg btn-purple" role="button"><i class="fa fa-pencil-square-o"></i> Edit</a>
+			</div> 
+			<div class="col-sm-2">	  
+				<a href="{% url 'timeline:delete' slug=instance.slug %}" class="btn btn-block btn-lg btn-red" role="button"><i class="fa fa-times-circle"></i> Delete</a>
 			</div>
-			<div class="col-sm-2">
-				<a href="{% url 'timeline:delete' slug=instance.slug %}" class="btn btn-block btn-lg btn-red" role="button"><i class="fa fa-times-circle"></i>
- Delete</a>
-			</div>
+			{% else %}
+			<div class="col-sm-4">
+			</div> 
+			<div class="col-sm-2">	  
+			</div>			
+			{% endif %}
+
 		</div>
 
 		<div class="row">

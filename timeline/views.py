@@ -13,8 +13,8 @@ from .models import Photo
 # 	return HttpResponse('Hello David!')
 
 def photo_create(request):
-	if not request.user.is_staff or not request.user.is_superuser:
-	 	raise Http404
+	if not request.user.is_authenticated():
+	 	return HttpResponseRedirect("/accounts/login")
 
 	form = PhotoForm(request.POST or None, request.FILES or None)
 	if form.is_valid():
@@ -32,6 +32,9 @@ def photo_create(request):
 
 
 def photo_detail(request, slug=None): # retrieve
+	if not request.user.is_authenticated():
+		return HttpResponseRedirect("/accounts/login")
+
 	instance = get_object_or_404(Photo, slug=slug)
 	# if instance.draft or instance.timestamp > timezone.now().date():
 	# 	if not request.user.is_staff or not request.user.is_superuser:
@@ -84,8 +87,8 @@ def photo_list(request): # list items
 
 
 def photo_update(request, slug=None):
-	if not request.user.is_staff or not request.user.is_superuser:
-		raise Http404
+	if not request.user.is_authenticated():
+		return HttpResponseRedirect("/accounts/login")
 	instance = get_object_or_404(Photo, slug=slug)
 	form = PhotoForm(request.POST or None, request.FILES or None, instance=instance)
 	if form.is_valid():
@@ -105,9 +108,14 @@ def photo_update(request, slug=None):
 
 
 def photo_delete(request, slug=None):
-	if not request.user.is_staff or not request.user.is_superuser:
-		raise Http404
+	if not request.user.is_staff or not request.user.is_superuser or not request.user.is_authenticated():
+		return HttpResponseRedirect("/accounts/login")
 	instance = get_object_or_404(Photo, slug=slug)
 	instance.delete()
 	messages.success(request, "Succesfully Deleted")
 	return redirect("timeline:list")
+
+
+
+
+
