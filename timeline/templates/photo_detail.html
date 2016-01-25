@@ -25,15 +25,13 @@
   <!-- Photo Detail -->
  	<section id="photoDetail">
 
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row">
-		   <div class="col-md-12">
 			<div class="photoDetail">
 			{% if instance.image %}
 	    		<img src='{{ instance.image.url }}' class='img-responsive' />
 	    	{% endif %}
     		</div>
-    	   </div>
     	</div>
 	</div>
 
@@ -75,13 +73,17 @@
 		</div>
 
 		<div class="row">
-			<div class="col-sm-5">
+			<div class="col-sm-2">
 				<a href="{% url 'timeline:list' %}" class="btn btn-block btn-lg btn-dark" role="button"><i class="fa fa-angle-double-left"></i>
- Back to Timeline</a>
+ Back</a>
 			</div>
-			<div class="col-sm-5">
+			<div class="col-sm-4">
 				<a href="{% url 'timeline:update' slug=instance.slug %}" class="btn btn-block btn-lg btn-purple" role="button"><i class="fa fa-pencil-square-o"></i>
  Edit</a>
+			</div>
+			<div class="col-sm-4">
+				<a href="{{ instance.image.url }}" class="btn btn-block btn-lg btn-purple" role="button"><i class="fa fa-download"></i>
+ Download</a>
 			</div>
 			<div class="col-sm-2">
 				<a href="{% url 'timeline:delete' slug=instance.slug %}" class="btn btn-block btn-lg btn-red" role="button"><i class="fa fa-times-circle"></i>
