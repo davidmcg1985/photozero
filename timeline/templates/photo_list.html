@@ -22,32 +22,41 @@
       </form>
   </div>
 
-  <div class="space"></div> <!-- 40px Vertical Spacing -->
-
   <!-- Timeline -->
   <section id="timeline">
 
-  <div class="container-fluid"> <!-- Container Fluid-->
   {% for obj in object_list %}
+  <div class="space"></div> <!-- 40px Vertical Spacing -->
+  <div class="container"> <!-- Container Fluid-->
+
     <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h3>{{ obj.title }}</h3>
+        <h5>{{ obj.timestamp }}</h5>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-md-12">
         <div class="timeline">
             {% if obj.image %}
              <img src='{{ obj.image.url }}' class='img-responsive' />
             {% endif %}
         </div>
+      </div>
     </div>
+  </div>
 
     <div class="container">
       <div class="row">
-        <div class="col-md-12 text-left">
-                    <div class="fb-like pull-left" data-href="{{ request.build_absolute_uri }}" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
-          <p class="pull-right"><small>Posted {{ obj.timestamp | timesince }} ago</small></p>
+        <div class="col-md-12">
+          <div class="fb-like pull-left" data-href="{{ request.build_absolute_uri }}" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true" style="margin-bottom: 20px;"></div>
         </div>
       </div>
 
       <div class="row">
         <div class="col-md-3">
-          <a class="btn btn-block btn-lg btn-purplea" style="cursor: default; text-transform: none;">{{ obj.title }}</a>
+          <a class="btn btn-block btn-lg btn-purplea" style="cursor: default; text-transform: none;"><small>Posted {{ obj.timestamp | timesince }} ago</small></a>
         </div>
         <div class="col-md-7">
           {% if obj.user.get_full_name %}
@@ -65,7 +74,6 @@
           <!-- <a class="btn btn-block btn-lg btn-purplea" style="cursor: default; text-transform: none;">
             {{ obj.content|truncatechars:50 }}
           </a> -->
-    <hr/>
     <div class="space"></div> <!-- 40px Vertical Spacing -->
   {% endfor %}
   </div>

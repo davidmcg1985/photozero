@@ -36,7 +36,7 @@ class Photo(models.Model):
 	# 	height_field="height_field")
 	image = ProcessedImageField(upload_to=upload_location, 
 		null=True, 
-		blank=True,
+		blank=False,
 		processors=[Transpose()],
 		format='JPEG',
 		width_field="width_field",
