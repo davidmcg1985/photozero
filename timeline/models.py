@@ -6,6 +6,9 @@ from django.db import models
 from django.db.models.signals import pre_save
 from django.utils import timezone
 
+from imagekit.models import ProcessedImageField
+from imagekit.processors import Transpose
+
 from django.utils.text import slugify
 # Create your models here.
 
@@ -26,9 +29,16 @@ class Photo(models.Model):
 	title = models.CharField(max_length=120)
 	# image = models.FileField(null=True, blank=True)
 	slug = models.SlugField(unique=True)
-	image = models.ImageField(upload_to=upload_location, 
+	# image = models.ImageField(upload_to=upload_location, 
+	# 	null=True, 
+	# 	blank=True,
+	# 	width_field="width_field",
+	# 	height_field="height_field")
+	image = ProcessedImageField(upload_to=upload_location, 
 		null=True, 
 		blank=True,
+		processors=[Transpose()],
+		format='JPEG',
 		width_field="width_field",
 		height_field="height_field")
 	height_field = models.IntegerField(default=0)
