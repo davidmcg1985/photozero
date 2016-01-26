@@ -60,10 +60,10 @@
       </div>
 
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4">
           <a class="btn btn-block btn-lg btn-purplea" style="cursor: default; text-transform: none;"><small>Posted {{ obj.timestamp | timesince }} ago</small></a>
         </div>
-        <div class="col-md-7">
+        <div class="col-md-6">
           {% if obj.user.get_full_name %}
           <a class="btn btn-block btn-lg btn-purplea" style="cursor: default; text-transform: none;">Photographer: {{ obj.user.get_full_name }}</a>
           {% else %}

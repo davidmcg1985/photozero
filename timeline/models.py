@@ -39,6 +39,7 @@ class Photo(models.Model):
 		blank=False,
 		processors=[Transpose()],
 		format='JPEG',
+		options={'quality': 60}
 		width_field="width_field",
 		height_field="height_field")
 	height_field = models.IntegerField(default=0)
