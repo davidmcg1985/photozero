@@ -8,7 +8,7 @@ class PhotoModelAdmin(admin.ModelAdmin):
 	#list_display_links = ["title"]
 	list_filter = ["updated", "timestamp"]
 	#list_editable = ["draft"]
-	search_fields = ["title", "content"]
+	search_fields = ["title", "desription"]
 
 	class Meta:
 		model = Photo

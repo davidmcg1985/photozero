@@ -27,26 +27,18 @@ def upload_location(instance, filename):
 class Photo(models.Model):
 	user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1)
 	title = models.CharField(max_length=120)
-	# image = models.FileField(null=True, blank=True)
 	slug = models.SlugField(unique=True)
-	# image = models.ImageField(upload_to=upload_location, 
-	# 	null=True, 
-	# 	blank=True,
-	# 	width_field="width_field",
-	# 	height_field="height_field")
 	image = ProcessedImageField(upload_to=upload_location, 
 		null=True, 
 		blank=False,
 		processors=[Transpose()],
 		format='JPEG',
-		options={'quality': 60},
+		options={'quality': 50},
 		width_field="width_field",
 		height_field="height_field")
 	height_field = models.IntegerField(default=0)
 	width_field = models.IntegerField(default=0)
-	content = models.TextField()
-	# draft = models.BooleanField(default=False)
-	# publish = models.DateField(auto_now=False, auto_now_add=False, null=True, blank=True)
+	desription = models.TextField()
 	updated = models.DateTimeField(auto_now=True, auto_now_add=False)
 	timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
 

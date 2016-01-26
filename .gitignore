@@ -4,6 +4,7 @@ photozero/settings/local.py
 photozero/old_settings.py
 photozero.sublime-project
 photozero.sublime-workspace
+mediafiles/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
