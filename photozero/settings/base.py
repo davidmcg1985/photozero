@@ -29,9 +29,9 @@ ADMINS = (('Webmaster','dmcgweb101@gmail.com'),('Administrator','davidmcg1985@gm
 ALLOWED_HOSTS = ['www.photozero.co.uk']
 
 EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'davidmcg1985'
+EMAIL_HOST_USER = os.environ['SENDGRID_USERNAME']
 EMAIL_MAIN = 'dmcgweb101@gmail.com'
-EMAIL_HOST_PASSWORD = '5lindSay5'
+EMAIL_HOST_PASSWORD = os.environ['SENDGRID_PASSWORD']
 EMAIL_PORT = 587
 EMAIL_USER_TLS = True
 
