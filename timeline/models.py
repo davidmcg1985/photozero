@@ -34,12 +34,12 @@ class Photo(models.Model):
 		#processors=[Transpose(), ResizeToFit(1500, 1000, False)],
 		processors=[Transpose(), ResizeToFit(width=1200)],
 		format='JPEG',
-		options={'quality': 100},
+		options={'quality': 50},
 		width_field="width_field",
 		height_field="height_field")
 	height_field = models.IntegerField(default=0)
 	width_field = models.IntegerField(default=0)
-	desription = models.TextField()
+	description = models.TextField()
 	updated = models.DateTimeField(auto_now=True, auto_now_add=False)
 	timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
 
