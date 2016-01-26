@@ -30,8 +30,8 @@ ALLOWED_HOSTS = ['www.photozero.co.uk']
 
 # STATIC_URL = '/static/'
 
-AWS_ACCESS_KEY_ID = "AKIAIDMIGJZOKJPXP5IA"
-AWS_SECRET_ACCESS_KEY = "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"
+AWS_ACCESS_KEY_ID = os.environ['AWS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_ACCESS_KEY']
 
 
 AWS_FILE_EXPIRE = 200
@@ -40,7 +40,7 @@ AWS_QUERYSTRING_AUTH = True
 
 DEFAULT_FILE_STORAGE = 'photozero.utils.MediaRootS3BotoStorage'
 STATICFILES_STORAGE = 'photozero.utils.StaticRootS3BotoStorage'
-AWS_STORAGE_BUCKET_NAME = 'dmcgphotozone'
+AWS_STORAGE_BUCKET_NAME = os.environ['AWS_BUCKET_NAME']
 S3DIRECT_REGION = 'us-west-2'
 S3_URL = '//%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
 MEDIA_URL = '//%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
