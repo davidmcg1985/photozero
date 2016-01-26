@@ -15,7 +15,7 @@ EMAIL_HOST_PASSWORD = os.environ['SENDGRID_PASSWORD']
 EMAIL_PORT = 587
 EMAIL_USER_TLS = True
 
-ADMINS = (('Webmaster','dmcgweb101@gmail.com'),('Administrator','davidmcg1985@gmail.com'))
+ADMINS = ('Webmaster','dmcgweb101@gmail.com')
 
 DATABASES = settings.DATABASES
 
