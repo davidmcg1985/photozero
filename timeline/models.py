@@ -32,9 +32,9 @@ class Photo(models.Model):
 		null=True, 
 		blank=False,
 		#processors=[Transpose(), ResizeToFit(1500, 1000, False)],
-		processors=[Transpose(), ResizeToFit(height=750)],
+		processors=[Transpose(), ResizeToFit(width=1200)],
 		format='JPEG',
-		options={'quality': 60},
+		options={'quality': 100},
 		width_field="width_field",
 		height_field="height_field")
 	height_field = models.IntegerField(default=0)
