@@ -5,6 +5,9 @@ import dj_database_url
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
+
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = os.environ['SENDGRID_USERNAME']
 EMAIL_MAIN = 'dmcgweb101@gmail.com'
