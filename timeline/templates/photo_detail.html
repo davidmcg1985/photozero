@@ -12,11 +12,13 @@
 
   <div id="header" class="text-center">
       <a href="{% url 'timeline:list' %}"><img src="{% static 'img/logo500x345.png' %}" class="img-responsive logo"/></a>
-      <h3>PhotoZero</h3>
 
       <div class="space"></div> <!-- 40px Vertical Spacing -->
 
       <p>Share your photographs.</p>
+
+      <div class="space"></div> <!-- 40px Vertical Spacing -->
+      
       <a href="{% url 'timeline:create' %}" class="btn btn-purple"><i class="fa fa-upload"></i> Upload</a>      
   </div>
 
@@ -27,10 +29,12 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="photoDetail">
-			{% if instance.image %}
-	    		<img src='{{ instance.image.url }}' class='img-responsive' />
-	    	{% endif %}
+			<div class="col-md-12">
+				<div class="photoDetail">
+				{% if instance.image %}
+		    		<img src='{{ instance.image.url }}' class='img-responsive' />
+		    	{% endif %}
+	    		</div>
     		</div>
     	</div>
 	</div>
@@ -38,8 +42,25 @@
 	<div class="container"> <!-- Container -->
 	 	<div class="row">
 			<div class="col-md-8">
-				<p><div class="fb-like" data-href="{{ request.build_absolute_uri }}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
-				</p>
+
+				<!-- Comments section -->
+					<a class="btn btn-lg btn-graya btn--comment" href="#comments" data-toggle="tooltip" data-placement="bottom" title="Comments" data-original-title="Comments">
+					    <span><i class="fa fa-comment" style="color: #FF9B37;"></i></span>
+					</a>
+
+				<!-- Facebook -->
+				<a class="btn btn-lg btn-darka btn--facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" onclick="window.open(this.href,'facebook-share-dialog','width=626,height=436');return false;" data-toggle="tooltip" data-placement="bottom" title="Facebook" data-original-title="Facebook">
+				    <span><i class="fa fa-facebook-square" style="color: #004088;"></i></span>
+				</a>
+
+				<!-- Twitter -->
+				<a class="btn btn-lg btn-darka btn--twitter" target="_blank" href="https://twitter.com/home?status={{ share_string }}%20{{ request.build_absolute_uri }}" onclick="window.open(this.href,'twitter-share-dialog','width=626,height=436');return false;" data-toggle="tooltip" data-placement="bottom" title="Twitter" data-original-title="Twitter">
+				   <span><i class="fa fa-twitter-square" style="color: #49A8DE;"></i></span>
+				</a>
+
+				<!-- WhatsApp -->
+				<a class="btn btn-lg btn-darka btn--whatsapp hidden-md-plus" href="whatsapp://send?text={{ share_string }}%20{{ request.build_absolute_uri }}" target="_blank" data-text="{{ share_string }}" data-href="{{ request.build_absolute_uri }}" data-toggle="tooltip" data-placement="bottom" title="WhatsApp" data-original-title="WhatsApp"><span><i class="fa fa-whatsapp" style="color: #43D854;"></i></span></a>
+
 			</div>
 			<div class="col-md-4">
 						
@@ -98,7 +119,7 @@
 
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-numposts="5" data-width="100%"></div>
+				<div id="comments" class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-numposts="5" data-width="100%"></div>
 			</div>
 		</div>
 

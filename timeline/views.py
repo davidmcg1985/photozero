@@ -39,11 +39,11 @@ def photo_detail(request, slug=None): # retrieve
 	# if instance.draft or instance.timestamp > timezone.now().date():
 	# 	if not request.user.is_staff or not request.user.is_superuser:
 	# 		raise Http404
-	#share_string = quote_plus(instance.description)
+	share_string = quote_plus(instance.description)
 	context = {
 		"title": instance.title,
 		"instance": instance,
-		#"share_string": share_string,
+		"share_string": share_string,
 		# "slug": instance.slug,
 	}
 

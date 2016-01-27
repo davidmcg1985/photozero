@@ -1,23 +1,43 @@
 {% extends "account/base.html" %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
 
 {% load i18n %}
 
 {% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
 
 {% block content %}
-<h1>{% trans "Verify Your E-mail Address" %}</h1>
 
-{% url 'account_email' as email_url %}
+	<div id="header" class="text-center">
+	<a href="{% url 'timeline:list' %}"><img src="{% static 'img/logo500x345.png' %}" class="img-responsive logo"/></a>
 
-<p>{% blocktrans %}This part of the site requires us to verify that
-you are who you claim to be. For this purpose, we require that you
-verify ownership of your e-mail address. {% endblocktrans %}</p>
+	<div class="space"></div> <!-- 40px Vertical Spacing -->
 
-<p>{% blocktrans %}We have sent an e-mail to you for
-verification. Please click on the link inside this e-mail. Please
-contact us if you do not receive it within a few minutes.{% endblocktrans %}</p>
+	<p>Share your photographs.</p>   
+	</div>
 
-<p>{% blocktrans %}<strong>Note:</strong> you can still <a href="{{ email_url }}">change your e-mail address</a>.{% endblocktrans %}</p>
+	<div class="space"></div> <!-- 40px Vertical Spacing -->
 
+	<div class="container">
+		<div class="col-md-6 col-md-offset-3">
+		  <div class="row">
+
+			<h1>{% trans "Verify Your E-mail Address" %}</h1>
+
+			{% url 'account_email' as email_url %}
+
+			<p>{% blocktrans %}This part of the site requires us to verify that
+			you are who you claim to be. For this purpose, we require that you
+			verify ownership of your e-mail address. {% endblocktrans %}</p>
+
+			<p>{% blocktrans %}We have sent an e-mail to you for
+			verification. Please click on the link inside this e-mail. Please
+			contact us if you do not receive it within a few minutes.{% endblocktrans %}</p>
+
+			<p>{% blocktrans %}<strong>Note:</strong> you can still <a href="{{ email_url }}">change your e-mail address</a>.{% endblocktrans %}</p>
+		    
+		  </div>
+		</div>
+	</div>
 
 {% endblock %}

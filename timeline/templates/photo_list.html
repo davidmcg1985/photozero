@@ -4,16 +4,19 @@
 
   <div id="header" class="text-center">
       <a href="{% url 'timeline:list' %}"><img src="{% static 'img/logo500x345.png' %}" class="img-responsive logo"/></a>
-      <h3>PhotoZero</h3>
 
       <div class="space"></div> <!-- 40px Vertical Spacing -->
 
       <p>Share your photographs.</p>
 
+      <div class="space"></div> <!-- 40px Vertical Spacing -->
+
       {% if user.is_superuser or user.is_authenticated %}  
       <a href="{% url 'timeline:create' %}" class="btn btn-purple"><i class="fa fa-upload"></i> Upload</a>
       {% else %}
-      <a href="{% url 'account_login' %}" class="btn btn-purple"><i class="fa fa-login"></i> Login</a>
+      <a href="{% url 'account_login' %}" class="btn btn-purple"><i class="fa fa-sign-in"></i> Login</a>
+      <p>or</p>
+      <a href="{% url 'account_signup' %}" class="btn btn-purple"><i class="fa fa-pencil-square-o"></i> Signup</a>
       {% endif %}
 
       <div class="space"></div> <!-- 40px Vertical Spacing -->

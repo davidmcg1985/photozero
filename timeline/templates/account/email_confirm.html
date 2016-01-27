@@ -1,4 +1,6 @@
 {% extends "account/base.html" %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
 
 {% load i18n %}
 {% load account %}
@@ -7,25 +9,45 @@
 
 
 {% block content %}
-<h1>{% trans "Confirm E-mail Address" %}</h1>
 
-{% if confirmation %}
+	<div id="header" class="text-center">
+	<a href="{% url 'timeline:list' %}"><img src="{% static 'img/logo500x345.png' %}" class="img-responsive logo"/></a>
 
-{% user_display confirmation.email_address.user as user_display %}
+	<div class="space"></div> <!-- 40px Vertical Spacing -->
 
-<p>{% blocktrans with confirmation.email_address.email as email %}Please confirm that <a href="mailto:{{ email }}">{{ email }}</a> is an e-mail address for user {{ user_display }}.{% endblocktrans %}</p>
+	<p>Share your photographs.</p>   
+	</div>
 
-<form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
-{% csrf_token %}
-    <button type="submit">{% trans 'Confirm' %}</button>
-</form>
+	<div class="space"></div> <!-- 40px Vertical Spacing -->
 
-{% else %}
+	<div class="container">
+		<div class="col-md-6 col-md-offset-3">
+		  <div class="row">
+		    	
+			<h1>{% trans "Confirm E-mail Address" %}</h1>
 
-{% url 'account_email' as email_url %}
+			{% if confirmation %}
 
-<p>{% blocktrans %}This e-mail confirmation link expired or is invalid. Please <a href="{{ email_url }}">issue a new e-mail confirmation request</a>.{% endblocktrans %}</p>
+			{% user_display confirmation.email_address.user as user_display %}
 
-{% endif %}
+			<p>{% blocktrans with confirmation.email_address.email as email %}Please confirm that <a href="mailto:{{ email }}">{{ email }}</a> is an e-mail address for user {{ user_display }}.{% endblocktrans %}</p>
+
+			<form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
+			{% csrf_token %}
+			{{ form | crispy }}
+			    <button type="submit" class="btn btn-block btn-lg btn-dark">{% trans 'Confirm' %}</button>
+			</form>
+
+			{% else %}
+
+			{% url 'account_email' as email_url %}
+
+			<p>{% blocktrans %}This e-mail confirmation link expired or is invalid. Please <a href="{{ email_url }}">issue a new e-mail confirmation request</a>.{% endblocktrans %}</p>
+
+			{% endif %}
+
+		  </div>
+		</div>
+	</div>
 
 {% endblock %}

@@ -1,11 +1,30 @@
 {% extends "account/base.html" %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
 
 {% load i18n %}
 
 {% block head_title %}{% trans "Sign Up Closed" %}{% endblock %}
 
 {% block content %}
-<h1>{% trans "Sign Up Closed" %}</h1>
 
-<p>{% trans "We are sorry, but the sign up is currently closed." %}</p>
+	<div id="header" class="text-center">
+	<a href="{% url 'timeline:list' %}"><img src="{% static 'img/logo500x345.png' %}" class="img-responsive logo"/></a>
+
+	<div class="space"></div> <!-- 40px Vertical Spacing -->
+
+	<p>Share your photographs.</p>   
+	</div>
+
+	<div class="space"></div> <!-- 40px Vertical Spacing -->
+
+	<div class="container">
+		<div class="col-md-6 col-md-offset-3">
+		  <div class="row">
+			<h1>{% trans "Sign Up Closed" %}</h1>
+			<p>{% trans "We are sorry, but the sign up is currently closed." %}</p>	    
+		  </div>
+		</div>
+	</div>
+
 {% endblock %}

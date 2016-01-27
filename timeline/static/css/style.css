@@ -190,7 +190,7 @@ a:focus {
 }
 
 .pagination li > span, a{
-    color: #82368C !important;
+    color: #82368C;
     font-family: 'Raleway', Arial, sans-serif;
 }
 
@@ -222,6 +222,42 @@ a:focus {
     margin: 40px 0;
 }
 
+.btn--comment {
+    box-shadow: 0px 0px 0px 0px #FF9B37 inset !important;
+    border: 1px solid #FF9B37 !important;
+    border-bottom: 5px solid #FF9B37 !important;
+    color: #FF9B37 !important;
+    text-decoration: none;
+}
+
+.btn--facebook {
+    box-shadow: 0px 0px 0px 0px #004088 inset !important;
+    border: 1px solid #004088 !important;
+    border-bottom: 5px solid #004088 !important;
+    color: #004088;
+    text-decoration: none;
+}
+
+.btn--twitter {
+    box-shadow: 0px 0px 0px 0px #49A8DE inset !important;
+    border: 1px solid #49A8DE !important;    
+    border-bottom: 5px solid #49A8DE !important;
+    color: #49A8DE !important;
+    text-decoration: none;
+}
+
+.btn--whatsapp {
+    box-shadow: 0px 0px 0px 0px #43D854 inset !important;
+    border: 1px solid #43D854 !important;    
+    border-bottom: 5px solid #43D854 !important;
+    color: #43D854 !important;
+    text-decoration: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .hidden-md-plus {
+    display: none; } 
+}
 
 /***************************
 ******** Buttons ********
@@ -399,37 +435,6 @@ input[type="file"] {
 /***************************
 ******** Footer ********
 ***************************/
-
-      /* Wrapper for page content to push down footer */
-      #wrap {
-        min-height: 100%;
-        height: auto !important;
-        height: 100%;
-        /* Negative indent footer by it's height */
-        margin: 0 auto 0px;
-      }
-
-      /* Set the fixed height of the footer here */
-      #push,
-      #footer {
-        height: 225px;
-      }
-      #footer {
-            background-color: #EEE;
-            color: #82368C;
-            padding: 40px;
-            text-align: center;
-      }
-
-      /* Lastly, apply responsive CSS fixes as necessary */
-      @media (max-width: 767px) {
-        #footer {
-          margin-left: -20px;
-          margin-right: -20px;
-          padding-left: 20px;
-          padding-right: 20px;
-        }
-      }
 
 
 /* Responsive Media Query */

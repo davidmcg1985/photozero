@@ -4,30 +4,29 @@
 
 {% block content %}
 
-  <div id="header" class="text-center">
-      <a href="{% url 'timeline:list' %}"><img src="{% static 'img/logo500x345.png' %}" class="img-responsive logo"/></a>
-      <h3>PhotoZero</h3>
+	<div id="header" class="text-center">
+	  <a href="{% url 'timeline:list' %}"><img src="{% static 'img/logo500x345.png' %}" class="img-responsive logo"/></a>
 
-      <div class="space"></div> <!-- 40px Vertical Spacing -->
+	  <div class="space"></div> <!-- 40px Vertical Spacing -->
 
-      <p>Share your photographs.</p>   
-  </div>
+	  <p>Share your photographs.</p>   
+	</div>
 
-	 <div class="space"></div> <!-- 40px Vertical Spacing -->
+	<div class="space"></div> <!-- 40px Vertical Spacing -->
 
-<section id="uploadForm">
-	<div class='container'>
-		<div class="row">
-			<div class="col-md-12">
-				<h1>New Photo</h1>
-				<form method='POST' action='' enctype='multipart/form-data'>{% csrf_token %}
-					{{ form | crispy }}
-					<br/>
-					<input type='submit' class='btn btn-block btn-lg btn-dark' value='Upload' />
-				</form>
+	<section id="uploadForm">
+		<div class='container'>
+			<div class="row">
+				<div class="col-md-12">
+					<h1>New Photo</h1>
+					<form method='POST' action='' enctype='multipart/form-data'>{% csrf_token %}
+						{{ form | crispy }}
+						<br/>
+						<input type='submit' class='btn btn-block btn-lg btn-dark' value='Upload' />
+					</form>
+				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
 
 {% endblock content %}
