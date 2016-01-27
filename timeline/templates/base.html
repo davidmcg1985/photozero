@@ -73,6 +73,11 @@
 
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="navbar-header">
+		<p class="navbar-user">
+			{% if user.is_authenticated %}
+			Hi, {{  user.username }}
+			{% endif %}
+		</p>
 		<a href="{% url 'timeline:list' %}" class="navbar-brand">
 			PhotoZero
 		</a>

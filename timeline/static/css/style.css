@@ -133,6 +133,15 @@ a:focus {
     margin: auto;
 }
 
+.navbar-user {
+    position: absolute;
+    width: 100%;
+    top: 15px;
+    margin-left:15px;
+    cursor: default;
+    z-index: 1000px;
+}
+
 .navbar {
     position: relative;
     min-height: 50px;
