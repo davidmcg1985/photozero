@@ -32,6 +32,8 @@
                 <div class="login-or text-center">{% trans 'or' %}</div>
             </div>
 
+            <br/>
+
 			<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
 			  {% csrf_token %}
 			  {{ form | crispy }}
