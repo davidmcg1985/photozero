@@ -228,13 +228,13 @@ a:focus {
 .description {
     border: 1px solid #82368C;
     padding: 20px;
-    margin: 40px 0;
+    margin: 20px 0px 40px 0px;
 }
 
 .btn--comment {
     box-shadow: 0px 0px 0px 0px #FF9B37 inset !important;
     border: 1px solid #FF9B37 !important;
-    border-bottom: 5px solid #FF9B37 !important;
+    /*border-bottom: 5px solid #FF9B37 !important;*/
     color: #FF9B37 !important;
     text-decoration: none;
 }
@@ -242,7 +242,7 @@ a:focus {
 .btn--facebook {
     box-shadow: 0px 0px 0px 0px #004088 inset !important;
     border: 1px solid #004088 !important;
-    border-bottom: 5px solid #004088 !important;
+    /*border-bottom: 5px solid #004088 !important;*/
     color: #004088;
     text-decoration: none;
 }
@@ -250,7 +250,7 @@ a:focus {
 .btn--twitter {
     box-shadow: 0px 0px 0px 0px #49A8DE inset !important;
     border: 1px solid #49A8DE !important;    
-    border-bottom: 5px solid #49A8DE !important;
+    /*border-bottom: 5px solid #49A8DE !important;*/
     color: #49A8DE !important;
     text-decoration: none;
 }
@@ -258,7 +258,7 @@ a:focus {
 .btn--whatsapp {
     box-shadow: 0px 0px 0px 0px #43D854 inset !important;
     border: 1px solid #43D854 !important;    
-    border-bottom: 5px solid #43D854 !important;
+    /*border-bottom: 5px solid #43D854 !important;*/
     color: #43D854 !important;
     text-decoration: none;
 }
@@ -410,6 +410,15 @@ a:focus {
     -moz-transition: all 0.5s;
     transition: all 0.5s;
     -webkit-font-smoothing: antialiased;
+}
+
+.fb-like {
+    /*margin-top: 20px;*/
+    position: absolute;
+    left: 5px;
+    bottom: 45px;
+    z-index: 1000px;
+    /*margin: 5px 0 15px 0;*/
 }
 
 /***************************

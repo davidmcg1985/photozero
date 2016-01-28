@@ -1,54 +1,77 @@
 {% extends "socialaccount/base.html" %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
 
 {% load i18n %}
 
 {% block head_title %}{% trans "Account Connections" %}{% endblock %}
 
 {% block content %}
-<h1>{% trans "Account Connections" %}</h1>
 
-{% if form.accounts %}
-<p>{% blocktrans %}You can sign in to your account using any of the following third party accounts:{% endblocktrans %}</p>
+	<div id="header" class="text-center">
+		<a href="{% url 'timeline:list' %}"><img src="{% static 'img/logo500x345.png' %}" class="img-responsive logo"/></a>
 
+		<div class="space"></div> <!-- 40px Vertical Spacing -->
 
-<form method="post" action="{% url 'socialaccount_connections' %}">
-{% csrf_token %}
+		<p>Share your photographs.</p>   
+	</div>
 
-<fieldset>
-{% if form.non_field_errors %}
-<div id="errorMsg">{{ form.non_field_errors }}</div>
-{% endif %}
+	<div class="space"></div> <!-- 40px Vertical Spacing -->
 
-{% for base_account in form.accounts %}
-{% with base_account.get_provider_account as account %}
-<div>
-<label for="id_account_{{ base_account.id }}">
-<input id="id_account_{{ base_account.id }}" type="radio" name="account" value="{{ base_account.id }}"/>
-<span class="socialaccount_provider {{ base_account.provider }} {{ account.get_brand.id }}">{{account.get_brand.name}}</span>
-{{ account }}
-</label>
-</div>
-{% endwith %}
-{% endfor %}
+	<div class="container">
+		<div class="col-md-6 col-md-offset-3">
+		  <div class="row">
 
-<div>
-<button type="submit">{% trans 'Remove' %}</button>
-</div>
+			<h1>{% trans "Account Connections" %}</h1>
 
-</fieldset>
+			{% if form.accounts %}
+			<p>{% blocktrans %}You can sign in to your account using any of the following third party accounts:{% endblocktrans %}</p>
 
-</form>
+			<form method="post" action="{% url 'socialaccount_connections' %}">
+			{% csrf_token %}
+			<fieldset>
+			{% if form.non_field_errors %}
+			<div id="errorMsg">{{ form.non_field_errors }}</div>
+			{% endif %}
 
-{% else %}
-<p>{% trans 'You currently have no social network accounts connected to this account.' %}</p>
-{% endif %}
+			{% for base_account in form.accounts %}
+			{% with base_account.get_provider_account as account %}
+			<div>
+			<br/>
+			<label for="id_account_{{ base_account.id }}">
+			<input id="id_account_{{ base_account.id }}" type="radio" name="account" value="{{ base_account.id }}"/>
+			<span class="socialaccount_provider {{ base_account.provider }} {{ account.get_brand.id }}">{{account.get_brand.name}}</span>
+			{{ account }}
+			</label>
+			</div>
+			{% endwith %}
+			{% endfor %}
+			<br/>
+			<div>
+			<button type="submit" class="btn btn-lg btn-red">{% trans 'Remove' %}</button>
+			</div>
 
-<h2>{% trans 'Add a 3rd Party Account' %}</h2>
+			</fieldset>
 
-<ul class="socialaccount_providers">
-{% include "socialaccount/snippets/provider_list.html" with process="connect" %}
-</ul>
+			</form>
+			{% endif %}
 
-{% include "socialaccount/snippets/login_extra.html" %}
+			<h4>{% trans 'Connect a 3rd Party Account?' %}</h4>
+			<br/>
+			{% load socialaccount %}
+			{% providers_media_js %}
+			<a href="{% provider_login_url "facebook" method="js_sdk" %}" class="btn btn-social btn-facebook">
+			<span class="fa fa-facebook"></span> Add Facebook account
+			</a>
+			<br/>
+			<a href="{% provider_login_url "twitter" method="js_sdk" %}" class="btn btn-social btn-twitter disabled">
+			<span class="fa fa-twitter"></span> Add Twitter account
+			</a>
+
+			{% include "socialaccount/snippets/login_extra.html" %}
+
+		  </div>
+		</div>
+	</div>
 
 {% endblock %}

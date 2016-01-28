@@ -1,4 +1,6 @@
 {% extends "openid/base.html" %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
 
 {% load i18n %}
 
@@ -11,8 +13,8 @@
 
 <form id="openid_login_form" class="openid_login" method="post" action="{% url 'openid_login' %}">
 {% csrf_token %}
-{{form.as_p}}
-<button type="submit">Sign In</button>
+{{form | crispy}}
+<button type="submit" class="btn btn-block btn-lg btn-dark">Sign In</button>
 </form>
 
 {% endblock %}

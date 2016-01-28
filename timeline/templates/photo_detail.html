@@ -40,9 +40,31 @@
 	</div>
 
 	<div class="container"> <!-- Container -->
-	 	<div class="row">
-			<div class="col-md-8">
 
+		<div class="row">
+	        <div class="col-md-12">
+	          <div class="fb-like pull-left" data-href="{{ request.build_absolute_uri }}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+	        </div>
+	      </div>
+
+	 	<div class="row">
+
+			<div class="col-md-7">
+						
+				{% if instance.user.get_full_name %}
+				<a class="btn btn-block btn-lg btn-purplea" style="cursor: default; text-transform: none;">
+				Photographer: {{ instance.user.get_full_name }}
+				</a>
+				{% else %}
+				<a class="btn btn-block btn-lg btn-purplea" style="cursor: default; text-transform: none;">
+				Photographer: {{ instance.user }}
+				</a>
+				{% endif %}
+
+			</div>
+
+			<div class="col-md-5 text-right">
+					<span class="btn btn-lg btn-purplea" style="cursor: default; text-transform: none;">Share</span>
 				<!-- Comments section -->
 					<a class="btn btn-lg btn-graya btn--comment" href="#comments" data-toggle="tooltip" data-placement="bottom" title="Comments" data-original-title="Comments">
 					    <span><i class="fa fa-comment" style="color: #FF9B37;"></i></span>
@@ -60,21 +82,6 @@
 
 				<!-- WhatsApp -->
 				<a class="btn btn-lg btn-darka btn--whatsapp hidden-md-plus" href="whatsapp://send?text={{ title }}%20{{ request.build_absolute_uri }}" target="_blank" data-text="{{ title }} " data-href="{{ request.build_absolute_uri }}" data-toggle="tooltip" data-placement="bottom" title="WhatsApp" data-original-title="WhatsApp"><span><i class="fa fa-whatsapp" style="color: #43D854;"></i></span></a>
-
-<!--     <a class="btn btn--wp hidden-md-plus" href="whatsapp://send?text=An%20Expert%20On%20Food%20Poisoning%20Has%20Revealed%20The%20Types%20Of%20Food%20He%20Will%20Never%20Eat%20-%20http%3A%2F%2Fwww.theladbible.com%2Farticles%2Fan-expert-on-food-poisoning-has-revealed-the-types-of-food-he-will-never-eat-270116" target="_blank" data-text="An&#x20;Expert&#x20;On&#x20;Food&#x20;Poisoning&#x20;Has&#x20;Revealed&#x20;The&#x20;Types&#x20;Of&#x20;Food&#x20;He&#x20;Will&#x20;Never&#x20;Eat" data-href="http://www.theladbible.com/articles/an-expert-on-food-poisoning-has-revealed-the-types-of-food-he-will-never-eat-270116"> -->
-
-			</div>
-			<div class="col-md-4">
-						
-				{% if instance.user.get_full_name %}
-				<a class="btn btn-block btn-lg btn-purplea" style="cursor: default; text-transform: none;">
-				Author: {{ instance.user.get_full_name }}
-				</a>
-				{% else %}
-				<a class="btn btn-block btn-lg btn-purplea" style="cursor: default; text-transform: none;">
-				Author: {{ instance.user }}
-				</a>
-				{% endif %}
 
 			</div>
 		</div>
@@ -118,6 +125,8 @@
 			{% endif %}
 
 		</div>
+
+		<div class="space"></div> <!-- 40px Vertical Spacing -->
 
 		<div class="row">
 			<div class="col-sm-12">

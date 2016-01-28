@@ -6,16 +6,17 @@ from django.db import models
 from django.db.models.signals import pre_save
 from django.utils import timezone
 
+from django.contrib.auth.models import User
+from allauth.account.models import EmailAddress
+
+from allauth.socialaccount.models import SocialAccount
+import hashlib
+
 from imagekit.models import ProcessedImageField
 from imagekit.processors import Transpose, ResizeToFit
 
 from django.utils.text import slugify
 # Create your models here.
-
-
-# class PhotoManager(models.Manager):
-# 	def active(self, *args, **kwargs):
-# 		return super(PhotoManager, self).filter(draft=False).filter(publish__lte=timezone.now())
 
 
 def upload_location(instance, filename):
@@ -43,19 +44,33 @@ class Photo(models.Model):
 	updated = models.DateTimeField(auto_now=True, auto_now_add=False)
 	timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
 
-	# objects = PhotoManager()
+ 
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, related_name='profile')
+ 
+    def __unicode__(self):
+        return "{}'s profile".format(self.user.username)
+ 
+    class Meta:
+        db_table = 'user_profile'
+ 
+    def account_verified(self):
+        if self.user.is_authenticated:
+            result = EmailAddress.objects.filter(email=self.user.email)
+            if len(result):
+                return result[0].verified
+        return False
+ 
+User.profile = property(lambda u: UserProfile.objects.get_or_create(user=u)[0])
 
-	def __unicode__(self):
-		return self.title
-
-	def __str__(self):
-		return self.title
-
-	def get_absolute_url(self):
-		return reverse("timeline:detail", kwargs={"slug": self.slug})
-
-	class Meta:
-		ordering = ["-timestamp", "-updated"]
+ 
+def profile_image_url(self):
+    fb_uid = SocialAccount.objects.filter(user_id=self.user.id, provider='facebook')
+ 
+    if len(fb_uid):
+        return "http://graph.facebook.com/{}/picture?width=40&height=40".format(fb_uid[0].uid)
+ 
+    return "http://www.gravatar.com/avatar/{}?s=40".format(hashlib.md5(self.user.email).hexdigest())
 
 
 def create_slug(instance, new_slug=None):
@@ -73,6 +88,19 @@ def create_slug(instance, new_slug=None):
 def pre_save_post_receiver(sender, instance, *args, **kwargs):
 	if not instance.slug:
 		instance.slug = create_slug(instance)
+
+
+	def __unicode__(self):
+		return self.title
+
+	def __str__(self):
+		return self.title
+
+	def get_absolute_url(self):
+		return reverse("timeline:detail", kwargs={"slug": self.slug})
+
+	class Meta:
+		ordering = ["-timestamp", "-updated"]
 
 
 pre_save.connect(pre_save_post_receiver, sender=Photo)

@@ -1,11 +1,30 @@
 {% extends "socialaccount/base.html" %}
+{% load staticfiles %}
 
 {% load i18n %}
 
 {% block head_title %}{% trans "Social Network Login Failure" %}{% endblock %}
 
 {% block content %}
-<h1>{% trans "Social Network Login Failure" %}</h1>
 
-<p>{% trans "An error occurred while attempting to login via your social network account." %}</p>
+	<div id="header" class="text-center">
+		<a href="{% url 'timeline:list' %}"><img src="{% static 'img/logo500x345.png' %}" class="img-responsive logo"/></a>
+
+		<div class="space"></div> <!-- 40px Vertical Spacing -->
+
+		<p>Share your photographs.</p>   
+	</div>
+
+	<div class="space"></div> <!-- 40px Vertical Spacing -->
+
+	<div class="container">
+		<div class="col-md-6 col-md-offset-3">
+		  <div class="row">
+			<h1>{% trans "Social Network Login Failure" %}</h1>
+
+			<p>{% trans "An error occurred while attempting to login via your social network account." %}</p>
+		  </div>
+		</div>
+	</div>
+
 {% endblock %}
