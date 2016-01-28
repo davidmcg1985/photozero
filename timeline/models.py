@@ -31,10 +31,10 @@ class Photo(models.Model):
 	image = ProcessedImageField(upload_to=upload_location, 
 		null=True, 
 		blank=False,
-		processors=[Transpose(), ResizeToFit(1500, 1000, False)],
+		processors=[Transpose(), ResizeToFit(1000, 1000, False)],
 		#processors=[Transpose(), ResizeToFit(width=960)],
 		format='JPEG',
-		options={'quality': 60},
+		options={'quality': 50},
 		width_field="width_field",
 		height_field="height_field")
 	height_field = models.IntegerField(default=0)
