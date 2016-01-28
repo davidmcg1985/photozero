@@ -2,17 +2,9 @@
 {% load crispy_forms_tags %}
 {% load staticfiles %}
 
+{% load i18n %}
+
 {% block content %}
-
-	<div id="header" class="text-center">
-	  <a href="{% url 'timeline:list' %}"><img src="{% static 'img/logo500x345.png' %}" class="img-responsive logo"/></a>
-
-	  <div class="space"></div> <!-- 40px Vertical Spacing -->
-
-	  <p>Share your photographs.</p>   
-	</div>
-
-	<div class="space"></div> <!-- 40px Vertical Spacing -->
 
 	<section id="uploadForm">
 		<div class='container'>

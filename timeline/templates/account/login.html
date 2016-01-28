@@ -9,72 +9,40 @@
 
 {% block content %}
 
-
-  <div id="header" class="text-center">
-    <a href="{% url 'timeline:list' %}"><img src="{% static 'img/logo500x345.png' %}" class="img-responsive logo"/></a>
-
-    <div class="space"></div> <!-- 40px Vertical Spacing -->
-
-    <p>Share your photographs.</p>   
-  </div>
-
-  <div class="space"></div> <!-- 40px Vertical Spacing -->
-
   <div class="container">
     <div class="col-md-6 col-md-offset-3">
-      <div class="row">
+      <div class="row text-left">
 
         <div class="text-center">
           <h1>{% trans "Sign In" %}</h1>
 
-          <p>{% blocktrans with site.name as site_name%}Don't have an account? Then please <a href="{{ signup_url }}">sign up</a>.{% endblocktrans %}</p>
+          <p>{% blocktrans with site.name as site_name%}Don't have an account? Then please <a href="{{ signup_url }}" style="text-decoration:underline;">sign up</a>.{% endblocktrans %}</p>
 
           <div class="space"></div> <!-- 40px Vertical Spacing -->
 
-                {% load socialaccount %}
-                {% providers_media_js %}
-                  <a href="{% provider_login_url "facebook" method="js_sdk" %}" class="btn btn-social btn-facebook">
-                    <span class="fa fa-facebook"></span> Sign in with Facebook
-                  </a>
-                  <br/>
-                  <a href="{% provider_login_url "twitter" method="js_sdk" %}" class="btn btn-social btn-twitter disabled">
-                    <span class="fa fa-twitter"></span> Sign in with Twitter
-                  </a>
+          {% load socialaccount %}
+          {% providers_media_js %}
+          <a href="{% provider_login_url "facebook" method="js_sdk" %}" class="btn btn-social btn-facebook">
+            <span class="fa fa-facebook"></span> Sign in with Facebook
+          </a>
+          <br/>
+          <a href="{% provider_login_url "twitter" method="js_sdk" %}" class="btn btn-social btn-twitter disabled">
+            <span class="fa fa-twitter"></span> Sign in with Twitter
+          </a>
 
-                <div class="login-or text-center">{% trans 'or' %}</div>
-            </div>
-            <!-- {% get_providers as socialaccount_providers %} -->
+          <div class="login-or text-center">{% trans 'or' %}</div>
+        </div>
 
-<!--             <p>{% blocktrans with site.name as site_name %}Please sign in with one
-            of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
-            for a {{ site_name }} account and sign in below:{% endblocktrans %}</p> -->
-
-<!--           <div class="socialaccount_ballot">
-
-            <ul class="socialaccount_providers">
-              {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-            </ul>
-
-            <div class="login-or text-center">{% trans 'or' %}</div>
-
-          </div> -->
-
-<!--           {% include "socialaccount/snippets/login_extra.html" %}
-
-          <p>{% blocktrans %}If you have not created an account yet, then please
-          <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p> -->
-
-          <form class="login" method="POST" action="{% url 'account_login' %}">
-            {% csrf_token %}
-            {{ form | crispy }}
-            {% if redirect_field_value %}
-            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-            {% endif %}
-            <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-            <button class="primaryAction btn btn-block btn-lg btn-dark" type="submit">{% trans "Sign In" %}</button>
-          </form>
-
-      </div>
+        <form class="login" method="POST" action="{% url 'account_login' %}">
+          {% csrf_token %}
+          {{ form | crispy }}
+          {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          {% endif %}
+          <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+          <button class="primaryAction btn btn-block btn-lg btn-dark" type="submit">{% trans "Sign In" %}</button>
+        </form>
+    </div>
     </div>
   </div>
 <div class="space"></div> <!-- 40px Vertical Spacing -->

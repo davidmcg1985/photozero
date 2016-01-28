@@ -52,7 +52,7 @@ a {
 
 a:hover,
 a:focus {
-    color: #ea6060;
+    color: #82368C;
     text-decoration: none;
 }
 .right {
@@ -92,6 +92,18 @@ a:focus {
     text-align: center;
 }
 
+.alert-success {
+    color: #FFF;
+    background-color: #BE9BDB;
+    border-color: #BE9BDB;
+}
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 0px;
+}
+
 /***************************
 ******** Navbar ********
 ***************************/
@@ -123,7 +135,7 @@ a:focus {
 
 .navbar-collapse.collapse.in {display: block !important; }
 
-.navbar-brand
+/*.navbar-brand
 {
     position: absolute;
     width: 100%;
@@ -131,12 +143,12 @@ a:focus {
     top: 0;
     text-align: center;
     margin: auto;
-}
+}*/
 
 .navbar-user {
     position: absolute;
     width: 100%;
-    top: 15px;
+    top: 5px;
     margin-left:15px;
     cursor: default;
     z-index: 1000px;
@@ -165,6 +177,11 @@ a:focus {
     height: 10%;
     max-width: 10%;
     min-width: 100px;
+}
+
+.logo-link {
+    color: #82368C;
+    text-decoration: none;
 }
 
 /***************************
