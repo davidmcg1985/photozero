@@ -1,5 +1,4 @@
 {% load staticfiles %}
-{% load progress_bar %} 
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -53,7 +52,6 @@
 
 	<style>{% block style %}{% endblock style %}</style>
 
-	{% progress_bar_media %}
 
 </head>
 <body>
@@ -138,7 +136,9 @@
 	<script type="text/javascript" src="{% static 'js/jquery.1.11.1.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/SmoothScroll.js' %}"></script>  
-	<script type="text/javascript" src="{% static 'js/load-image.all.min.js' %}"></script>  
+
+	{% block scripts %}{% endblock %}
+
 </body>
 </html>
 

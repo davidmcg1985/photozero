@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% load staticfiles %}
-{% load progress_bar %} 
 
 {% load i18n %}
 
@@ -12,9 +11,8 @@
 		<div class="row">
 			<div class="col-md-12">
 				<h1>Edit Photo</h1>
-				<form method='POST' action='' enctype='multipart/form-data'>{% csrf_token %}
+				<form id="form" method='POST' action='' enctype='multipart/form-data'>{% csrf_token %}
 					{{ form | crispy }}
-					{% progress_bar %}
 					<br/>
 					<input type='submit' class='btn btn-block btn-lg btn-dark' value='Update' />
 				</form>
@@ -24,3 +22,13 @@
 </section>
 
 {% endblock content %}
+
+{% block scripts %}
+<script src="{% static 'js/bootstrap-uploadprogress.js' %}"></script>
+
+<script>
+  $("#form").uploadprogress({
+    	redirect_url: "/"
+  });
+</script>
+{% endblock %}

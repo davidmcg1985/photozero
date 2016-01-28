@@ -10,7 +10,6 @@ urlpatterns = [
     url(r'^$', timeline.views.photo_list, name='list'),
     url(r'^timeline/', include('timeline.urls', namespace='timeline')),
     url(r'^accounts/', include('allauth.urls')),
-    url(r'^progressbarupload/?', include('progressbarupload.urls')),
 ]
 
 if settings.DEBUG:

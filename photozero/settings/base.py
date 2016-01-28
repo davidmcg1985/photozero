@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'progressbarupload',
     'timeline',
     'storages',
     'imagekit',
@@ -165,11 +164,3 @@ CONTENT_TYPES = ['image', 'video']
 # 250MB - 214958080
 # 500MB - 429916160
 MAX_UPLOAD_SIZE = "10485760"
-
-FILE_UPLOAD_HANDLERS = (
-    "progressbarupload.uploadhandler.ProgressBarUploadHandler",
-    "django.core.files.uploadhandler.MemoryFileUploadHandler",
-    "django.core.files.uploadhandler.TemporaryFileUploadHandler",
-)
-
-PROGRESSBARUPLOAD_INCLUDE_JQUERY = True
