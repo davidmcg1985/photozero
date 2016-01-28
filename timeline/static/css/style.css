@@ -147,7 +147,6 @@ a:focus {
 
 .navbar-user {
     position: absolute;
-    width: 100%;
     top: 5px;
     margin-left:15px;
     cursor: default;
