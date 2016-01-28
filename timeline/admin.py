@@ -9,6 +9,8 @@ class PhotoModelAdmin(admin.ModelAdmin):
 	list_filter = ["updated", "timestamp"]
 	#list_editable = ["draft"]
 	search_fields = ["title", "desription"]
+	change_form_template = 'progressbarupload/change_form.html'
+	add_form_template = 'progressbarupload/change_form.html'
 
 	class Meta:
 		model = Photo

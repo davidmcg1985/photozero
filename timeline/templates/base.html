@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load progress_bar %} 
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -51,6 +52,8 @@
     <![endif]-->
 
 	<style>{% block style %}{% endblock style %}</style>
+
+	{% progress_bar_media %}
 
 </head>
 <body>
