@@ -29,7 +29,7 @@ DATABASES['default']['CONN_MAX_AGE'] = 500
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Allow all host headers
-ALLOWED_HOSTS = ['www.photozero.co.uk']
+ALLOWED_HOSTS = ['www.photozero.co.uk','whispering-shore-71042.herokuapp.com']
 
 # STATIC_URL = '/static/'
 

@@ -26,7 +26,7 @@ DEBUG = False
 
 # ADMINS = (('Webmaster','dmcgweb101@gmail.com'),('Administrator','davidmcg1985@gmail.com'))
 
-ALLOWED_HOSTS = ['www.photozero.co.uk']
+ALLOWED_HOSTS = ['www.photozero.co.uk','whispering-shore-71042.herokuapp.com']
 
 # Application definition
 
@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.twitter',
-    # 'allauth.socialaccount.providers.instagram',
 ]
 
 SITE_ID = 1
@@ -163,4 +162,4 @@ CONTENT_TYPES = ['image', 'video']
 # 100MB 104857600
 # 250MB - 214958080
 # 500MB - 429916160
-MAX_UPLOAD_SIZE = "10485760"
+MAX_UPLOAD_SIZE = "5242880"
