@@ -19,8 +19,6 @@ import hashlib
 
 
 def upload_location(instance, filename):
-	# filebase, extension = filename.split(".")
-	# return "%s/%s.%s" %(instance.id, instance.id, extension)
 	return "%s/%s" %(instance.slug, filename)
 
 
@@ -32,14 +30,13 @@ class Photo(models.Model):
 		null=True, 
 		blank=False,
 		processors=[Transpose(), ResizeToFit(1000, 1000, False)],
-		#processors=[Transpose(), ResizeToFit(width=960)],
 		format='JPEG',
 		options={'quality': 50},
 		width_field="width_field",
 		height_field="height_field")
 	height_field = models.IntegerField(default=0)
 	width_field = models.IntegerField(default=0)
-	description = models.TextField()
+	description = models.TextField(max_length=1000)
 	updated = models.DateTimeField(auto_now=True, auto_now_add=False)
 	timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
 
@@ -83,14 +80,13 @@ class UserProfile(models.Model):
     def __unicode__(self):
         return "{}'s profile".format(self.user.username)
 
+    def __str__(self):
+        return "{}'s profile".format(self.user.username)
+
     class Meta:
         db_table = 'user_profile'
 
     def profile_image_url(self):
-        """
-        Return the URL for the user's Facebook icon if the user is logged in via Facebook,
-        otherwise return the user's Gravatar URL
-        """
         fb_uid = SocialAccount.objects.filter(user_id=self.user.id, provider='facebook')
 
         if len(fb_uid):
@@ -101,3 +97,17 @@ class UserProfile(models.Model):
 
 
 User.profile = property(lambda u: UserProfile.objects.get_or_create(user=u)[0])
+
+
+class Comment(models.Model):
+    post = models.ForeignKey('timeline.Photo', related_name='comments')
+    author = models.ForeignKey(User, related_name='Commenter')
+    text = models.TextField(max_length=1000)
+    created_date = models.DateTimeField(default=timezone.now)
+
+    def __unicode__(self):
+        return self.text
+
+    def __str__(self):
+        return self.text
+

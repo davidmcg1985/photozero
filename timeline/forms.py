@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Photo
+from .models import Photo, Comment
 
 
 class PhotoForm(forms.ModelForm):
@@ -12,3 +12,10 @@ class PhotoForm(forms.ModelForm):
             "image",
         ]
 
+class CommentForm(forms.ModelForm):
+	text = forms.CharField(widget=forms.Textarea, label='Leave a comment: ')
+	class Meta:
+		model = Comment
+		fields = [
+			"text",
+		]

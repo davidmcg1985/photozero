@@ -101,18 +101,23 @@
 	</nav>
 
 	{% include "messages_display.html" %}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div id="header" class="text-center">
+				    <a href="{% url 'timeline:list' %}" class="logo-link">
+				    	<img src="{% static 'img/logo500x345.png' %}" class="img-responsive logo"/>
+						<h4>PhotoZero</h4>
+					</a>
 
-	<div id="header" class="text-center">
-	    <a href="{% url 'timeline:list' %}" class="logo-link">
-	    	<img src="{% static 'img/logo500x345.png' %}" class="img-responsive logo"/>
-			<h4>PhotoZero</h4>
-		</a>
+				    <div class="space"></div> <!-- 40px Vertical Spacing -->
 
-	    <div class="space"></div> <!-- 40px Vertical Spacing -->
+				    <p>Share your photographs.</p>
 
-	    <p>Share your photographs.</p>
-
-		<div class="space"></div> <!-- 40px Vertical Spacing -->
+					<div class="space"></div> <!-- 40px Vertical Spacing -->
+				</div>
+			</div>
+		</div>
 	</div>
 
 			{% block content %}
@@ -120,9 +125,6 @@
 
 
 		<div class="space"></div> <!-- 40px Vertical Spacing -->
-
-<!-- 		<div id="push"></div>
-	</div>end of wrap -->
 
 <!-- 	<div id="footer">
 		<div class="container">

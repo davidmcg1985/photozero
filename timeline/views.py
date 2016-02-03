@@ -6,8 +6,8 @@ from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 
-from .forms import PhotoForm
-from .models import Photo
+from .forms import PhotoForm, CommentForm
+from .models import Photo, Comment
 
 # def index(request):
 # 	return HttpResponse('Hello David!')
@@ -36,19 +36,31 @@ def photo_detail(request, slug=None): # retrieve
 		return HttpResponseRedirect("/accounts/login")
 
 	instance = get_object_or_404(Photo, slug=slug)
-	# if instance.draft or instance.timestamp > timezone.now().date():
-	# 	if not request.user.is_staff or not request.user.is_superuser:
-	# 		raise Http404
+
+	if request.method == "POST":
+		form = CommentForm(request.POST)
+		if form.is_valid():
+		    comment = form.save(commit=False)
+		    comment.post = instance
+		    comment.save()
+		    return redirect('timeline:detail', slug=instance.slug)
+	else:
+		form = CommentForm()
+
 	share_string = quote_plus(instance.description)
+
 	context = {
 		"title": instance.title,
 		"instance": instance,
 		"share_string": share_string,
-		# "slug": instance.slug,
+		"form": form,
 	}
 
-	return render(request, "photo_detail.html", context)
-	# return HttpResponse("<h1>Detail</h1>")
+	return render(request, "photo_detail.html", context)   
+
+
+
+
 
 
 def photo_list(request): # list items
@@ -114,6 +126,16 @@ def photo_delete(request, slug=None):
 	instance.delete()
 	messages.success(request, "Succesfully Deleted")
 	return redirect("timeline:list")
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -172,10 +172,7 @@ a:focus {
 
 .logo {
     display: inline !important;
-    width: 10%;
-    height: 10%;
-    max-width: 10%;
-    min-width: 100px;
+    max-width: 35%;
 }
 
 .logo-link {
@@ -277,6 +274,18 @@ a:focus {
     /*border-bottom: 5px solid #43D854 !important;*/
     color: #43D854 !important;
     text-decoration: none;
+}
+
+.comment {
+    margin: 20px;
+}
+
+.date {
+
+}
+
+.comment-add {
+
 }
 
 @media only screen and (min-width: 768px) {

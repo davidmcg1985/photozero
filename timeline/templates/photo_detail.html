@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load urlify %}
+{% load crispy_forms_tags %}
 {% load staticfiles %}
 
 {% load i18n %}
@@ -43,18 +44,10 @@
 
 	 	<div class="row">
 
-			<div class="col-md-7">
-						
-				{% if instance.user.get_full_name %}
-				<a class="btn btn-block btn-lg btn-purplea" style="cursor: default; text-transform: none;">
-				Photographer: {{ instance.user.get_full_name }}
-				</a>
-				{% else %}
+			<div class="col-md-7">	
 				<a class="btn btn-block btn-lg btn-purplea" style="cursor: default; text-transform: none;">
 				Photographer: {{ instance.user }}
 				</a>
-				{% endif %}
-
 			</div>
 
 			<div class="col-md-5 text-right">
@@ -123,10 +116,45 @@
 		<div class="space"></div> <!-- 40px Vertical Spacing -->
 
 		<div class="row">
-			<div class="col-sm-12">
-				<div id="comments" class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-numposts="5" data-width="100%"></div>
+			<div class="col-md-12" id="comments">
+				<p>
+					{% if instance.comments.count == 0 %}
+		            No Comments
+		            {% elif instance.comments.count == 1 %}
+		            {{ instance.comments.count }} Comment
+		            {% else %}
+		            {{ instance.comments.count }} Comments
+		            {% endif %}
+				</p>
+				<hr style="margin-top: 10px;">
+					{% for comment in instance.comments.all %}
+					    <div class="comment">
+					        <div class="date pull-right">{{ comment.created_date | timesince }} Ago</div>
+					        <strong>{{ comment.author }}</strong>
+					        <p>{{ comment.text|linebreaks }}</p>
+					    </div>
+					    <hr>
+					{% empty %}
+					    <p>No comments here yet :(</p>
+					{% endfor %}
+				<!-- Facebook comments -->
+				<!--<div class="col-sm-12">
+					<div id="comments" class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-numposts="5" data-width="100%"></div>
+				</div> -->
 			</div>
 		</div>
+		
+		{% if user.is_superuser or user.is_authenticated %} 
+		<div class="row">
+			<div class="col-md-12">
+				<form method="POST" class="comment-form" action=''>
+					{% csrf_token %}
+			        {{ form | crispy }}
+				    <button type="submit" class="comment-add btn btn-lg btn-purple">Add</button>
+				</form>
+			</div>
+		</div>
+		{% endif %}
 
 	</div>
 
