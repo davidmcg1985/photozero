@@ -101,7 +101,7 @@ User.profile = property(lambda u: UserProfile.objects.get_or_create(user=u)[0])
 
 class Comment(models.Model):
     post = models.ForeignKey('timeline.Photo', related_name='comments')
-    author = models.ForeignKey(User, related_name='Commenter')
+    author = models.ForeignKey(User, related_name='comment_set')
     text = models.TextField(max_length=1000)
     created_date = models.DateTimeField(default=timezone.now)
 

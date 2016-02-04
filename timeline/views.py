@@ -23,7 +23,7 @@ def photo_create(request):
 		instance.save()
 		messages.success(request, "Succesfully Created") # message success
 		return HttpResponseRedirect(instance.get_absolute_url())
-
+		
 	context = {
 		"form": form,
 	}
@@ -41,6 +41,7 @@ def photo_detail(request, slug=None): # retrieve
 		form = CommentForm(request.POST)
 		if form.is_valid():
 		    comment = form.save(commit=False)
+		    comment.author = request.user
 		    comment.post = instance
 		    comment.save()
 		    return redirect('timeline:detail', slug=instance.slug)
@@ -57,10 +58,6 @@ def photo_detail(request, slug=None): # retrieve
 	}
 
 	return render(request, "photo_detail.html", context)   
-
-
-
-
 
 
 def photo_list(request): # list items
