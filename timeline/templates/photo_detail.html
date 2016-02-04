@@ -114,10 +114,11 @@
 		</div>
 
 		<div class="space"></div> <!-- 40px Vertical Spacing -->
-
+	
+		<div class="comment-section">
 		<div class="row">
 			<div class="col-md-12" id="comments">
-				<p>
+				<h4>
 					{% if instance.comments.count == 0 %}
 		            No Comments
 		            {% elif instance.comments.count == 1 %}
@@ -125,7 +126,7 @@
 		            {% else %}
 		            {{ instance.comments.count }} Comments
 		            {% endif %}
-				</p>
+				</h4>
 				<hr style="margin-top: 10px;">
 					{% for comment in instance.comments.all %}
 					    <div class="comment">
@@ -153,7 +154,6 @@
 			</div>
 		</div>
 		{% endif %}
-
 	</div>
 
   </section>

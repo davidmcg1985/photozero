@@ -239,7 +239,8 @@ a:focus {
 }
 
 .description {
-    border: 1px solid #82368C;
+    border-top: 1px solid #82368C;
+    border-bottom: 1px solid #82368C;
     padding: 20px;
     margin: 20px 0px 40px 0px;
 }
@@ -274,6 +275,11 @@ a:focus {
     /*border-bottom: 5px solid #43D854 !important;*/
     color: #43D854 !important;
     text-decoration: none;
+}
+
+.comment-section {
+    border: 1px solid #82368C;
+    padding: 20px;
 }
 
 .comment {
